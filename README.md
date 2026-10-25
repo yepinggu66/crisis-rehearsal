@@ -1,4 +1,4 @@
-# Crisis Rehearsal Engine — 用群体智能把危机先演一遍
+﻿# Crisis Rehearsal Engine — 用群体智能把危机先演一遍
 
 > **English TL;DR** — We run pre-mortems for reputation crises: feed 72 hours of pre-crisis public information into an open-source swarm-simulation engine (MiroFish), let hundreds of persona agents (media, retail investors, regulators, short sellers, competitors) react on a simulated social platform, then score the resulting forecast against what actually happened. In a backtest of 5 real, publicly documented Chinese corporate crises, the top-3 predicted risk types matched reality **87%** of the time (n=5, single run per event). Code, event library, and scoring protocol are open (AGPL-3.0). We sell rehearsal reports, not software.
 
@@ -40,7 +40,7 @@ A reputation crisis is irreversible once it starts: the first 24 hours are writt
 
 ```bash
 # 1. Clone
-git clone <this-repo> && cd crisis-rehearsal
+git clone https://github.com/yepinggu66/crisis-rehearsal && cd crisis-rehearsal
 
 # 2. Install MiroFish (upstream, AGPL-3.0)
 git clone https://github.com/666ghj/MiroFish
@@ -87,8 +87,9 @@ data/failures.md       # events where we missed — with post-mortem notes
 
 ## Contact
 
-Open an issue, or reach us at **founder@pingguye.cn**. We can run a free 30-minute rehearsal of one real past event for your team.
+Open an issue, or reach us at **founder@pingguye.cn**. We can run a free 30-minute rehearsal of one real past event for your team.\n\nMaintainer: [@PingguYe](https://x.com/PingguYe) on X.
 
 ---
 
 *This project builds on [MiroFish](https://github.com/666ghj/MiroFish) (81k+ stars, AGPL-3.0) and [OASIS](https://github.com/camel-ai/oasis) (Apache-2.0). We thank both teams.*
+
