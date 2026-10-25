@@ -1,6 +1,6 @@
-# Crisis Rehearsal Engine — 用群体智能把危机先演一遍
+﻿# Crisis Rehearsal Engine — 用群体智能把危机先演一遍
 
-> ▶ **Watch the 2-minute demo:** https://youtu.be/pj7PKonS2Ns  
+> ▶ **Watch the 2:42 demo:** https://youtu.be/pj7PKonS2Ns  
 > 🧵 **Discussion / launch thread:** https://x.com/PingguYe/status/2114413502475731030
 
 > **English TL;DR** — We run pre-mortems for reputation crises: feed 72 hours of pre-crisis public information into an open-source swarm-simulation engine (MiroFish), let hundreds of persona agents (media, retail investors, regulators, short sellers, competitors) react on a simulated social platform, then score the resulting forecast against what actually happened. In a backtest of 30 real, publicly documented Chinese corporate crises, the top-3 predicted risk types matched reality **83%** of the time (n=30, single run per event). Code, event library, and scoring protocol are open (AGPL-3.0). We sell rehearsal reports, not software.
@@ -95,4 +95,5 @@ Open an issue, or reach us at **yepinggu@outlook.com**. We can run a free 30-min
 ---
 
 *This project builds on [MiroFish](https://github.com/666ghj/MiroFish) (81k+ stars, AGPL-3.0) and [OASIS](https://github.com/camel-ai/oasis) (Apache-2.0). We thank both teams.*
+
 
