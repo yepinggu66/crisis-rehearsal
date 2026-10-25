@@ -87,7 +87,7 @@ data/failures.md       # events where we missed — with post-mortem notes
 
 ## Contact
 
-Open an issue, or reach us at **founder@pingguye.cn**. We can run a free 30-minute rehearsal of one real past event for your team.\n\nMaintainer: [@PingguYe](https://x.com/PingguYe) on X.
+Open an issue, or reach us at **yepinggu@outlook.com**. We can run a free 30-minute rehearsal of one real past event for your team.\n\nMaintainer: [@PingguYe](https://x.com/PingguYe) on X.
 
 ---
 
