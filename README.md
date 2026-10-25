@@ -1,8 +1,8 @@
 ﻿# Crisis Rehearsal Engine — 用群体智能把危机先演一遍
 
-> **English TL;DR** — We run pre-mortems for reputation crises: feed 72 hours of pre-crisis public information into an open-source swarm-simulation engine (MiroFish), let hundreds of persona agents (media, retail investors, regulators, short sellers, competitors) react on a simulated social platform, then score the resulting forecast against what actually happened. In a backtest of 5 real, publicly documented Chinese corporate crises, the top-3 predicted risk types matched reality **87%** of the time (n=5, single run per event). Code, event library, and scoring protocol are open (AGPL-3.0). We sell rehearsal reports, not software.
+> **English TL;DR** — We run pre-mortems for reputation crises: feed 72 hours of pre-crisis public information into an open-source swarm-simulation engine (MiroFish), let hundreds of persona agents (media, retail investors, regulators, short sellers, competitors) react on a simulated social platform, then score the resulting forecast against what actually happened. In a backtest of 30 real, publicly documented Chinese corporate crises, the top-3 predicted risk types matched reality **83%** of the time (n=30, single run per event). Code, event library, and scoring protocol are open (AGPL-3.0). We sell rehearsal reports, not software.
 
-**中文一句话**：用开源群体智能引擎做「危机预演」——只喂事发前 72 小时的公开信息，让几百个带人格的 Agent 先演一遍，再用真实结局回测。5 个真实历史危机事件，Top-3 风险命中率 **87%**。代码、事件库、评分协议全部开源（AGPL-3.0），我们卖的是预演报告与复演会。
+**中文一句话**：用开源群体智能引擎做「危机预演」——只喂事发前 72 小时的公开信息，让几百个带人格的 Agent 先演一遍，再用真实结局回测。30 个真实历史危机事件，Top-3 风险命中率 **83%**。代码、事件库、评分协议全部开源（AGPL-3.0），我们卖的是预演报告与复演会。
 
 ---
 
@@ -18,13 +18,13 @@ A reputation crisis is irreversible once it starts: the first 24 hours are writt
 4. **Native report generation** — MiroFish's ReportAgent produces an 8k-character structured rehearsal report per event.
 5. **Scoring** — an LLM judge compares the report's top-3 risks with the real outcome (event library contains ground truth), and we report hit rate + early-warning quality.
 
-## Backtest results (5 events)
+## Backtest results (30 events)
 
 | Metric | Result |
 |---|---|
-| Events | 5 publicly documented Chinese corporate crises (2018–2026) |
-| **Top-3 risk hit rate** | **87%** (mean 2.60/3) |
-| Full 3/3 hits | 1 events |
+| Events | 30 publicly documented Chinese corporate crises (2018–2026) |
+| **Top-3 risk hit rate** | **83%** (mean 2.48/3) |
+| Full 3/3 hits | 9 events |
 | Zero hits | 0 events |
 | Early-warning quality | 77/100 |
 | Cost per event | ~$0.03 (DeepSeek API) |
@@ -63,7 +63,7 @@ python scripts/backtest_runner.py --events data/events.csv --materials data/seed
 ## Repository layout
 
 ```
-data/events.csv        # 5 public crisis events with sources + outcomes
+data/events.csv        # 30 public crisis events with sources + outcomes
 data/seeds/{id}.md     # pre-crisis (T-72h) information packs used as simulation seeds
 patches/zep_local.py   # local Zep replacement (the key enabler)
 scripts/backtest_runner.py  # headless pipeline: graph → simulation → report
