@@ -1,0 +1,8 @@
+.env
+*.db
+output/
+__pycache__/
+node_modules/
+.venv/
+*.log
+local_zep/
