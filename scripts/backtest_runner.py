@@ -16,10 +16,10 @@ import time
 import httpx
 
 BASE = "http://127.0.0.1:5001"
-ROOT = r"E:\Deep seek-001\MiroFish"
-EVENTS_CSV = os.path.join(ROOT, "回测_事件库.csv")
-MATERIALS = os.path.join(ROOT, "回测_材料")
-OUT_ROOT = os.path.join(ROOT, "回测_输出_云端")
+ROOT = os.environ.get("CR_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+EVENTS_CSV = os.path.join(ROOT, "data", "events.csv")
+MATERIALS = os.path.join(ROOT, "data", "seeds")
+OUT_ROOT = os.path.join(ROOT, "output")
 
 
 def ok(r):
@@ -69,12 +69,12 @@ def poll_get(c, path, done=("completed", "success"), timeout=1800, interval=8, l
 
 
 def run_event(c, row, rounds, out_dir):
-    eid = str(row.get("编号")).strip()
-    name = row.get("事件名", "")
+    eid = str(row.get("id")).strip()
+    name = row.get("event_name_zh", "")
     requirement = (
         f"请推演「{name}」在事发前 72 小时的舆情演化。\n"
-        f"- 主体：{row.get('主体','')}\n- 危机类型：{row.get('危机类型','')}\n"
-        f"- 已知诱因（仅限事发前公开信息）：{row.get('诱因','')}\n"
+        f"- 主体：{row.get('entity','')}\n- 危机类型：{row.get('crisis_type','')}\n"
+        f"- 已知诱因（仅限事发前公开信息）：{row.get('trigger','')}\n"
         "要求输出：① 最可能被引爆的 3 个风险点（按可能性排序）；② 72 小时传播路径与关键节点；"
         "③ 沉默/道歉/反击三条应对路径各自的声量与情绪走向；④ 每条判断给出依据与置信度（高/中/低）。"
     )

@@ -1,4 +1,4 @@
-﻿# Crisis Rehearsal Engine — 用群体智能把危机先演一遍
+# Crisis Rehearsal Engine — 用群体智能把危机先演一遍
 
 > **English TL;DR** — We run pre-mortems for reputation crises: feed 72 hours of pre-crisis public information into an open-source swarm-simulation engine (MiroFish), let hundreds of persona agents (media, retail investors, regulators, short sellers, competitors) react on a simulated social platform, then score the resulting forecast against what actually happened. In a backtest of 30 real, publicly documented Chinese corporate crises, the top-3 predicted risk types matched reality **83%** of the time (n=30, single run per event). Code, event library, and scoring protocol are open (AGPL-3.0). We sell rehearsal reports, not software.
 
@@ -48,10 +48,10 @@ cd MiroFish && npm run setup:all && cp .env.example .env
 
 # 3. Apply the local graph adapter (no Zep Cloud required)
 cp ../patches/zep_local.py backend/app/utils/
-cp ../patches/zep.py.patch backend/app/utils/zep.py   # or apply the 7-line patch described in docs
+# then apply the 7-line change to backend/app/utils/zep.py (see docs/patches.md)
 
 # 4. Configure an OpenAI-compatible LLM in .env
-LLM_API_KEY=sk-...          # DeepSeek / OpenAI / Qwen / local llama.cpp all work
+LLM_API_KEY=sk-your-key-here   # DeepSeek / OpenAI / Qwen / local llama.cpp all work
 LLM_BASE_URL=https://api.deepseek.com
 LLM_MODEL_NAME=deepseek-chat
 ZEP_LOCAL=1

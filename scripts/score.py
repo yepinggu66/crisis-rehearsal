@@ -15,13 +15,12 @@ import re
 
 import httpx
 
-ROOT = r"E:\Deep seek-001\MiroFish"
-OUT = os.path.join(ROOT, "回测_输出_云端")
-CSV_PATH = os.path.join(ROOT, "回测_事件库.csv")
-KEY = ""
-for line in open(os.path.join(ROOT, "repo", ".env"), encoding="utf-8"):
-    if line.startswith("LLM_API_KEY="):
-        KEY = line.split("=", 1)[1].strip()
+ROOT = os.environ.get("CR_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+OUT = os.path.join(ROOT, "output")
+CSV_PATH = os.path.join(ROOT, "data", "events.csv")
+KEY = os.environ.get("LLM_API_KEY", "")
+if not KEY:
+    raise SystemExit("set LLM_API_KEY env var (DeepSeek/OpenAI compatible)")
 BASE = "https://api.deepseek.com"
 MODEL = "deepseek-chat"
 
@@ -39,7 +38,7 @@ def ask(prompt, max_tokens=700):
 
 
 def main(ids):
-    rows = {str(r.get("编号")).strip(): r for r in csv.DictReader(open(CSV_PATH, encoding="utf-8-sig"))}
+    rows = {str(r.get("id")).strip(): r for r in csv.DictReader(open(CSV_PATH, encoding="utf-8-sig"))}
     scores = []
     for eid in ids:
         rp = os.path.join(OUT, eid, "report.md")
@@ -50,8 +49,8 @@ def main(ids):
         row = rows.get(eid, {})
         prompt = (
             "你是舆情回测评审。请对照「真实结局」，评估一份事发前 72 小时生成的预演报告。\n"
-            f"事件：{row.get('事件名')}\n主体：{row.get('主体')}\n危机类型：{row.get('危机类型')}\n"
-            f"真实诱因：{row.get('诱因')}\n真实结局：{row.get('结局')}\n实际处罚/损失：{row.get('处罚/损失')}\n\n"
+            f"事件：{row.get('event_name_zh')}\n主体：{row.get('entity')}\n危机类型：{row.get('crisis_type')}\n"
+            f"真实诱因：{row.get('trigger')}\n真实结局：{row.get('outcome')}\n实际处罚/损失：{row.get('penalty')}\n\n"
             f"预演报告（节选）：\n{md}\n\n"
             "输出 JSON：{\"top3\":[{\"rank\":1,\"risk\":\"报告中的风险点\",\"hit\":\"yes|partial|no\",\"why\":\"对照真实结局的判断依据\"}],"
             "\"path_hit\":\"yes|partial|no\",\"early_warning\":0-100,\"comment\":\"一句话总评\"}\n"
