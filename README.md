@@ -1,99 +1,194 @@
-﻿# Crisis Rehearsal Engine — 用群体智能把危机先演一遍
+# Crisis Rehearsal Engine — rehearse the crisis before it happens
 
-> ▶ **Watch the 2:42 demo:** https://youtu.be/pj7PKonS2Ns  
-> 🧵 **Discussion / launch thread:** https://x.com/PingguYe/status/2114413502475731030
+> ▶ **Watch the 2:42 demo:** https://youtu.be/pj7PKonS2Ns
+> 🧵 **Launch thread on X:** https://x.com/PingguYe/status/2114413502475731030
 
-> **English TL;DR** — We run pre-mortems for reputation crises: feed 72 hours of pre-crisis public information into an open-source swarm-simulation engine (MiroFish), let hundreds of persona agents (media, retail investors, regulators, short sellers, competitors) react on a simulated social platform, then score the resulting forecast against what actually happened. In a backtest of 30 real, publicly documented Chinese corporate crises, the top-3 predicted risk types matched reality **83%** of the time (n=30, single run per event). Code, event library, and scoring protocol are open (AGPL-3.0). We sell rehearsal reports, not software.
+**TL;DR** — We take a real reputation crisis, rewind to 72 hours before it broke, and give a swarm-simulation engine (MiroFish) only the public information available at that moment. 7–12 persona agents — journalists, retail investors, regulators, short sellers, competitors — react for 2 rounds on a simulated social feed, and an 8k-character rehearsal report comes out. An LLM judge then scores the report's top-3 risks against what actually happened.
 
-**中文一句话**：用开源群体智能引擎做「危机预演」——只喂事发前 72 小时的公开信息，让几百个带人格的 Agent 先演一遍，再用真实结局回测。30 个真实历史危机事件，Top-3 风险命中率 **83%**。代码、事件库、评分协议全部开源（AGPL-3.0），我们卖的是预演报告与复演会。
+In v0.2 we re-ran all 30 events **three times each — 90 runs, identical scoring rubric**.
+
+**Top-3 risk hit rate: 82.2%** (95% CI 78.5–85.9; n=30 events × 3 runs).
+
+The uncomfortable part is published too: **only 17% of events scored identically across all three runs**, and our internal stability score is **STA 58** — under our own pass line of 60.
+
+Event library, T-72h seeds, local graph adapter, scoring protocol and failure file are open (AGPL-3.0). **We sell rehearsal reports and workshops, not software.**
+
+**Check the numbers yourself in two commands, no API key required:**
+
+```bash
+git clone https://github.com/yepinggu66/crisis-rehearsal && cd crisis-rehearsal
+python scripts/ci_stats.py     # -> 82.2%, 95% CI 78.5-85.9%, within-event SD 0.26, 5/30 identical
+python scripts/sta_stats.py    # -> stability STA 58 (our pass line is 60, so: failed)
+```
+
+Those two scripts read the shipped evidence pack in `data/repeat_v02/` (90 judge records) and are standard-library only.
 
 ---
 
 ## Why
 
-A reputation crisis is irreversible once it starts: the first 24 hours are written into public memory, and most companies only buy **monitoring** — after the fact. The budget they already spend is on **crisis response** (in one documented public tender: ¥65k/year for "public-opinion monitoring" vs **¥429.5k per crisis** for "crisis PR"). We sell the rehearsal that happens *before* the crisis.
+A reputation crisis is irreversible once it starts: the first 24 hours get written into public memory, and most companies only buy **monitoring** — after the fact. The budget that already exists sits on the response side. We sell the rehearsal that happens *before* the crisis.
 
 ## What we built
 
-1. **Pre-crisis information pack** — only what was publicly available 72h before the event (no hindsight).
-2. **Local knowledge graph** — we replaced MiroFish's Zep Cloud dependency with a local JSON graph adapter (1 file, ~400 lines), so the whole pipeline runs without any cloud graph service.
-3. **Swarm simulation** — 7–12 persona agents per event on a simulated Twitter/Reddit, 2 rounds, driven by DeepSeek (or any OpenAI-compatible model).
-4. **Native report generation** — MiroFish's ReportAgent produces an 8k-character structured rehearsal report per event.
-5. **Scoring** — an LLM judge compares the report's top-3 risks with the real outcome (event library contains ground truth), and we report hit rate + early-warning quality.
+1. **Pre-crisis information pack** — only what was publicly available 72 hours before the event. No hindsight.
+2. **Local knowledge graph** — MiroFish's Zep Cloud dependency replaced with a local JSON graph adapter (1 file, ~400 lines). The pipeline runs with zero cloud graph service.
+3. **Swarm simulation** — 7–12 persona agents per event on a simulated Twitter/Reddit, 2 rounds, driven by DeepSeek or any OpenAI-compatible model.
+4. **Native report generation** — MiroFish's ReportAgent produces an ~8k-character structured rehearsal report per event.
+5. **Scoring** — an LLM judge compares the report's top-3 risks with the real outcome (the event library carries ground truth), and returns top-3 hits plus an early-warning quality score.
 
-## Backtest results (30 events)
+## Backtest results (v0.2, 30 events × 3 runs)
 
-| Metric | Result |
+| Metric | v0.2 value |
 |---|---|
 | Events | 30 publicly documented Chinese corporate crises (2018–2026) |
-| **Top-3 risk hit rate** | **83%** (mean 2.48/3) |
-| Full 3/3 hits | 9 events |
-| Zero hits | 0 events |
-| Early-warning quality | 77/100 |
-| Cost per event | ~$0.03 (DeepSeek API) |
-| Time per event | ~4 minutes (graph → personas → 2-round simulation → report) |
+| Runs | 30 events × 3 runs = **90** (all completed, no failures) |
+| **Top-3 risk hit rate** (event mean) | **82.2%** (mean 2.47/3) |
+| 95% CI, t-distribution (primary) | **78.5% – 85.9%** (±3.7pp) |
+| 95% CI, 10,000-sample bootstrap | 78.7% – 85.6% |
+| Paired per-event diff vs v0.1 | **−0.02/3 (±0.18)** — v0.1 reproduced |
+| Between-event SD (difficulty spread) | 0.30/3 |
+| Within-event SD (same event, re-run) | **0.26/3** (median 0.24) |
+| Events identical across all 3 runs | **5/30 = 17%** |
+| Events with SD ≥ 0.5 | 2/30 = 7% (#21, #23) |
+| Events at a perfect 3/3 in all three runs | 0/30 |
+| Events at a perfect 3/3 at least once | 14/30 = 47% |
+| Runs scoring a perfect 3/3 | 21/90 = 23% |
+| Early-warning quality | 78/100 (range 75–81) |
+| **Stability STA** (internal template §2.5) | **58** — pass line 60, funding line 75 → **failed** |
+| Cost / time per event | ~$0.03 (DeepSeek API) / ~4 minutes |
 
-**Honest limitations** (please read before quoting the number):
-- Single run per event; the engine is stochastic, so the figure is directional, not a stable benchmark.
-- Scoring is LLM-judged; we are calibrating it with human spot checks.
-- 30 events is a small sample (±17pp at 95% CI). A 100+ event, 3–5 runs-per-event benchmark is the next milestone.
-- Failures are included in the repo (`data/failures.md`) — we do not hide negative cases.
+Full table, per-event scores and the stability breakdown: `data/repeat_v02/v02_summary.md`.
+The judge's raw records for all 90 runs: `data/repeat_v02/scores.jsonl`.
+The cases we lost: `data/failures.md`.
 
-## Quick start
+## What changed in v0.2 (we re-ran everything 3×)
+
+- **Every event re-run three times.** 30 events × 3 runs = 90 full simulations, 2 rounds each, same seeds, same judge prompt, same thresholds. v0.1 was one run per event.
+- **Variance and interval estimation added.** Event-mean hit rate with a t-distribution CI (primary) and a 10,000-sample bootstrap CI, reported side by side. Between-event and within-event SD are now separate numbers instead of one blended claim.
+- **Replication check, published.** The per-event paired difference against v0.1 is −0.02/3 (±0.18). The old single-run result reproduced. That is the least interesting sentence in this README and the one we most wanted to be able to write.
+- **Our own stability score is disclosed, including the failure.** STA 58 against a pass line of 60: J̄ item agreement 0.54, CV 0.08, Kendall W 0.29. We publish it because a metric you only show when it passes is marketing.
+- **Honest wording upgraded.** v0.1 said "83%". The defensible statement is "Top-3 risk hit rate 82.2%, event-mean graded score, n=30 events × 3 runs" — a graded 0–3 score averaged across events, not a binary hit/miss rate, and not a probability about the future.
+- **New scripts.** `repeat_runs.py`, `score_repeat.py`, `cluster_items.py`, `ci_stats.py`, `sta_stats.py` alongside `backtest_runner.py` and `score.py`. The v0.2 statistics scripts use the standard library only.
+
+## Reproducibility & stability
+
+This is the section most benchmark write-ups skip, so here is ours.
+
+**How stable are the results?**
+- Only **5 of 30 events (17%)** produced identical scores on all three runs. Run the same event twice and you can get a meaningfully different report.
+- Within-event SD is **0.26/3** (median 0.24), against a between-event SD of 0.30/3. Roughly speaking, the randomness from re-running is nearly as large as the differences between easy and hard events.
+- Two events are outright unstable (SD ≥ 0.5/3, 7%): the canteen food-safety visual case (#21) and the executive self-video case (#23), scoring 1.5–3.0 and 1.0–2.5 across their three runs.
+- We would rather report this than hide it: **a single-run score on a single event is noise.** Our delivery rule is 3–5 repeated runs per event and read the consensus, not the best draw.
+
+**Two kinds of stability, measured separately.** A score can be stable while the reasoning under it moves. Event #8 scored exactly 2.0/3 in all three runs, yet its top-3 items and their order drifted (disagreement D = 0.60), which is why we compute STA (item agreement, CV, Kendall's W), not just SD.
+
+**Scoring discipline (please hold us to it)**
+1. 82.2% is an **event-mean graded score** (0/0.5/1 … 3 per event), not a binary hit/miss rate. The binary framing on 30 events is roughly ±17pp. Do not mix the two.
+2. 90 runs are **not** 90 independent samples. The statistical unit is 30 events; repeats exist to estimate run-to-run noise.
+3. The interval covers sampling and run randomness only. It does **not** include LLM-judge error, and it does not include systematic bias from a 2-round simulation.
+4. Because only 17% of events are fully stable, we commit to "a consistent level across repeated runs", never to "the same conclusion every time". High-variance events must be run multiple times and read as a consensus.
+5. This is a rehearsal / backtest producing **directional evidence** — not a forecast, not a probability, not "we know what happens next".
+
+**What we do not ship.** The judge's scores for all 90 runs are in this repo, but the 90 generated reports (~8.4k characters / ~23 KB each) are not — three full samples are in `docs/reports/`. You can recompute every published statistic; you cannot independently re-judge the reports from this repo alone. The judge prompt is fixed, Chinese and unchanged since v0.1 (`scripts/score_repeat.py`), so the two batches stay comparable.
+
+## Honest limitations
+
+- **The judge is an LLM.** Same model family, fixed prompt, fixed thresholds — reproducible, but not yet human-calibrated. Human spot-checks are in progress and are not part of the 82.2% figure. The 95% CI excludes judge error by construction.
+- **The judge grades risk type, not consequence severity.** A rehearsal that names the right risk at the wrong scale can still score 2.5/3. We think this is a bigger limitation than the 17% stability number, and it is visible in `data/failures.md` (#6, #8).
+- **The dominant error is a false escalation.** In the five worst events, 5 of the 6 zero-scoring Top-3 slots were "legal pressure / blame the supplier" branches that never happened. It is a systematic false-positive mode, documented honestly rather than smoothed over.
+- **30 events is small.** Binary framing gives roughly ±17pp at 95%. The corpus is Chinese-market, 2018–2026. Generalization is unproven.
+- **There is no control condition in this release.** No human-analyst baseline, no ablation, no dumb baseline. The 82.2% describes the pipeline against a fixed rubric; it is not a claim that the pipeline beats an analyst.
+- **2 rounds of simulation is a simplification** of real opinion dynamics. It is enough to produce escalation paths and the right questions; it is not a model of society.
+- **Negative samples are included.** Events where the engine should not have claimed an edge are in the corpus and they count against the score.
+- **Failures are in the repo** (`data/failures.md`), with post-mortem notes. We do not hide misses.
+
+## Reproduce it
+
+Two levels. The first needs nothing but Python; the second needs a running MiroFish and an LLM key.
+
+### A. Verify the published numbers (no API key, no simulation)
+
+The v0.2 evidence pack is shipped: 90 judge records, the v0.1 baseline, the item merge.
 
 ```bash
-# 1. Clone
-git clone https://github.com/yepinggu66/crisis-rehearsal && cd crisis-rehearsal
-
-# 2. Install MiroFish (upstream, AGPL-3.0)
-git clone https://github.com/666ghj/MiroFish
-cd MiroFish && npm run setup:all && cp .env.example .env
-
-# 3. Apply the local graph adapter (no Zep Cloud required)
-cp ../patches/zep_local.py backend/app/utils/
-# then apply the 7-line change to backend/app/utils/zep.py (see docs/patches.md)
-
-# 4. Configure an OpenAI-compatible LLM in .env
-LLM_API_KEY=sk-your-key-here   # DeepSeek / OpenAI / Qwen / local llama.cpp all work
-LLM_BASE_URL=https://api.deepseek.com
-LLM_MODEL_NAME=deepseek-chat
-ZEP_LOCAL=1
-
-# 5. Run the backtest
-python scripts/backtest_runner.py --events data/events.csv --materials data/seeds --out output --limit 5
+python scripts/ci_stats.py  --out data/repeat_v02   # 82.2%, CI 78.5-85.9, variance, 17%
+python scripts/sta_stats.py --out data/repeat_v02   # stability STA 58
 ```
+
+With no flags both scripts default to `data/repeat_v02`. They print the sha256 prefix of the
+scores file they read, so a silent edit to the data shows up in the output. Each script has a
+full flag set under `--help`.
+
+### B. Regenerate the whole grid (MiroFish + LLM key)
+
+```bash
+# 0) MiroFish (upstream, AGPL-3.0) + local graph adapter, no Zep Cloud
+git clone https://github.com/666ghj/MiroFish && cd MiroFish && npm run setup:all && cp .env.example .env
+cp ../patches/zep_local.py backend/app/utils/    # then the 7-line zep.py change in docs/patches.md
+cd .. && export LLM_API_KEY=sk-... LLM_BASE_URL=https://api.deepseek.com LLM_MODEL_NAME=deepseek-chat ZEP_LOCAL=1
+#    (or put the same four keys in a .env at the repo root; env vars win, .env is the fallback)
+
+# 1) one event, end to end (2 simulation rounds) -- the v0.1 single-run runner
+pip install -r requirements.txt      # httpx, only needed for this line
+python scripts/backtest_runner.py --ids 21 --rounds 2
+
+# 2) the v0.2 grid: every event, three times
+python scripts/repeat_runs.py --runs 3 --rounds 2 --out output_v2
+
+# 3) score each run with the same judge prompt and thresholds as v0.1
+python scripts/score_repeat.py --out output_v2
+
+# 4) merge Top-3 items by meaning (needed for STA; the shipped merge is a file you can inspect)
+python scripts/cluster_items.py --out output_v2
+
+# 5) event-mean hit rate + 95% CI (t and 10k bootstrap) + variance, then stability
+python scripts/ci_stats.py --out output_v2
+python scripts/sta_stats.py --out output_v2
+```
+
+The full grid is 90 runs × ~4 minutes — roughly six hours of wall-clock on one machine — plus a few dollars of API credit. `repeat_runs.py` is resumable (existing reports are skipped) and `--ids` shards the grid across processes. `-h` on each script prints the full flag set.
 
 ## Repository layout
 
 ```
-data/events.csv        # 30 public crisis events with sources + outcomes
-data/seeds/{id}.md     # pre-crisis (T-72h) information packs used as simulation seeds
-patches/zep_local.py   # local Zep replacement (the key enabler)
-scripts/backtest_runner.py  # headless pipeline: graph → simulation → report
-scripts/score.py       # LLM judge with fixed protocol
-docs/methodology.md    # hit definitions, information-clean-room rules, scoring protocol
-docs/reports/{id}.md   # generated rehearsal reports (8k chars each)
-data/failures.md       # events where we missed — with post-mortem notes
+data/events.csv              # 30 public crisis events with sources + outcomes
+data/seeds/{id}.md           # pre-crisis (T-72h) information packs used as simulation seeds
+data/repeat_v02/             # v0.2 evidence: 90 judge records, v0.1 baseline, item merge, summaries
+data/failures.md             # events where we missed -- with post-mortem notes
+data/reports/25.md           # an earlier single-report sample from v0.1
+patches/zep_local.py         # local Zep replacement (the key enabler)
+scripts/backtest_runner.py   # v0.1 headless pipeline: graph -> simulation -> report (one run per event)
+scripts/score.py             # v0.1 LLM judge with fixed protocol
+scripts/repeat_runs.py       # v0.2: N repeated runs per event, resumable output layout
+scripts/score_repeat.py      # v0.2: score every repeat, same rubric as v0.1
+scripts/cluster_items.py     # v0.2: merge the same risk item across runs (for STA)
+scripts/ci_stats.py          # v0.2: event-mean hit rate, t-CI, bootstrap CI, variance
+scripts/sta_stats.py         # v0.2: stability (STA), item agreement, CV, Kendall W
+docs/methodology.md          # hit definitions, information-clean-room rules, scoring protocol
+docs/patches.md              # the 6 changes needed for upstream MiroFish
+docs/reports/{1,28}.md       # generated rehearsal reports, full length (~8.4k characters each)
+requirements.txt             # httpx for the v0.1 runner scripts; v0.2 statistics scripts are stdlib-only
 ```
 
 ## License & commercial boundary
 
-- **Code**: AGPL-3.0 (same as upstream MiroFish). You can run it, modify it, and offer it as a service — but if you modify and serve it, you must publish your source.
+- **Code**: AGPL-3.0, same as upstream MiroFish. Run it, modify it, offer it as a service — but if you modify and serve it, publish your source.
 - **What we keep closed**: industry ontology (agent persona rules), client corpora, delivery playbooks. We sell **rehearsal reports and workshops**, not the engine.
-- **No client data in this repo.** All events are public news; seeds are written by us from public sources only.
+- **No client data in this repo.** All events are public news; seeds were written by us from public sources only.
 
 ## Who it is for
 
-- **PR / IR agencies** that want a white-label rehearsal engine (an alternative to enterprise suites from the big holding groups).
-- **Listed companies and funds** that face reputation risk and want to rehearse before it happens.
-- **Cross-border brands** (Chinese brands going global): we rehearse the two-way spillover between domestic and overseas opinion.
+- **PR / IR agencies** that want a white-label rehearsal engine instead of an enterprise suite.
+- **Listed companies and funds** that face reputation risk and want to rehearse before it lands.
+- **Cross-border brands** (Chinese brands going global): we rehearse two-way spillover between domestic and overseas opinion.
 
 ## Contact
 
-Open an issue, or reach us at **yepinggu@outlook.com**. We can run a free 30-minute rehearsal of one real past event for your team.\n\nMaintainer: [@PingguYe](https://x.com/PingguYe) on X.
+Open an issue, or email **yepinggu@outlook.com**. We will run a free 30-minute rehearsal of one real past event for your team. Chinese site: https://pingguye.cn
+
+Maintainer: [@PingguYe](https://x.com/PingguYe).
 
 ---
 
-*This project builds on [MiroFish](https://github.com/666ghj/MiroFish) (81k+ stars, AGPL-3.0) and [OASIS](https://github.com/camel-ai/oasis) (Apache-2.0). We thank both teams.*
-
-
+*Built on [MiroFish](https://github.com/666ghj/MiroFish) (AGPL-3.0) and [OASIS](https://github.com/camel-ai/oasis) (Apache-2.0). Thanks to both teams.*

@@ -152,7 +152,7 @@ def main():
     want = [x.strip() for x in args.ids.split(",") if x.strip()]
 
     rows = list(csv.DictReader(open(EVENTS_CSV, encoding="utf-8-sig")))
-    by_id = {str(r.get("编号")).strip(): r for r in rows}
+    by_id = {str(r.get("id", "")).strip(): r for r in rows}
     c = httpx.Client(base_url=BASE, timeout=httpx.Timeout(900.0, connect=20.0))
     print("health:", c.get("/health").json(), flush=True)
 
@@ -163,7 +163,7 @@ def main():
         if not row:
             print(f"skip {eid}: not in corpus", flush=True)
             continue
-        print(f"=== event {eid}: {row.get('事件名')} ===", flush=True)
+        print(f"=== event {eid}: {row.get('event_name_zh')} ===", flush=True)
         try:
             meta = run_event(c, row, args.rounds, os.path.join(OUT_ROOT, eid))
             print("done:", json.dumps(meta, ensure_ascii=False), flush=True)

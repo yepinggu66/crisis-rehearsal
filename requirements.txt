@@ -1,0 +1,11 @@
+# Runtime dependencies.
+#
+# The v0.2 statistics scripts are standard-library only and need nothing below:
+#   scripts/ci_stats.py, scripts/sta_stats.py
+#   scripts/score_repeat.py, scripts/cluster_items.py, scripts/repeat_runs.py
+# (numpy is used to accelerate the bootstrap CI when it happens to be installed;
+#  a pure-Python fallback is built in.)
+#
+# Only the v0.1 pipeline scripts that talk to a local MiroFish server need httpx:
+#   scripts/backtest_runner.py, scripts/score.py
+httpx>=0.24

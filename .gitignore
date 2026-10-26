@@ -1,6 +1,7 @@
 .env
 *.db
 output/
+output_v2/
 __pycache__/
 node_modules/
 .venv/
