@@ -1,0 +1,19 @@
+diff --git a/backend/app/utils/zep.py b/backend/app/utils/zep.py
+index c8bd4c9..043fbe1 100644
+--- a/backend/app/utils/zep.py
++++ b/backend/app/utils/zep.py
+@@ -62,8 +62,12 @@ def _cached_zep_client(api_key: str, timeout: float) -> Zep:
+     )
+ 
+ 
+-def get_zep_client(api_key: str | None = None, timeout: float | None = None) -> Zep:
+-    """Return a process-shared, explicitly configured Zep Cloud client."""
++def get_zep_client(api_key: str | None = None, timeout: float | None = None):
++    """Return a process-shared Zep client (Cloud by default, local shim when ZEP_LOCAL=1)."""
++
++    if os.environ.get("ZEP_LOCAL", "").strip() in {"1", "true", "True", "yes"}:
++        from .zep_local import get_local_client
++        return get_local_client()
+ 
+     # zep-cloud gives ZEP_API_URL precedence even when base_url is explicit.
+     # Reject it so this Cloud-only integration cannot silently target a

@@ -90,11 +90,11 @@ This is the section most benchmark write-ups skip, so here is ours.
 4. Because only 17% of events are fully stable, we commit to "a consistent level across repeated runs", never to "the same conclusion every time". High-variance events must be run multiple times and read as a consensus.
 5. This is a rehearsal / backtest producing **directional evidence** — not a forecast, not a probability, not "we know what happens next".
 
-**What we do not ship.** The judge's scores for all 90 runs are in this repo, but the 90 generated reports (~8.4k characters / ~23 KB each) are not — three full samples are in `docs/reports/`. You can recompute every published statistic; you cannot independently re-judge the reports from this repo alone. The judge prompt is fixed, Chinese and unchanged since v0.1 (`scripts/score_repeat.py`), so the two batches stay comparable.
+**What we do not ship.** The judge's scores for all 90 runs are in this repo, but the 90 generated reports (~8.4k characters / ~23 KB each) are not. You can recompute every published statistic; you cannot independently re-judge the reports from this repo alone. Three full samples are shipped — `docs/reports/{1,28}.md` and `data/reports/25.md`. The judge prompt is fixed, Chinese and unchanged since v0.1 (`scripts/score_repeat.py`), so the two batches stay comparable.
 
 ## Honest limitations
 
-- **The judge is an LLM.** Same model family, fixed prompt, fixed thresholds — reproducible, but not yet human-calibrated. Human spot-checks are in progress and are not part of the 82.2% figure. The 95% CI excludes judge error by construction.
+- **The judge is an LLM.** Same model family, fixed prompt, fixed thresholds — reproducible, but **not human-calibrated**: no human spot-check has been run yet (planned for v0.2.2; status and template in `data/judge_calibration.md`). It is not part of the 82.2% figure, and the 95% CI excludes judge error by construction.
 - **The judge grades risk type, not consequence severity.** A rehearsal that names the right risk at the wrong scale can still score 2.5/3. We think this is a bigger limitation than the 17% stability number, and it is visible in `data/failures.md` (#6, #8).
 - **The dominant error is a false escalation.** In the five worst events, 5 of the 6 zero-scoring Top-3 slots were "legal pressure / blame the supplier" branches that never happened. It is a systematic false-positive mode, documented honestly rather than smoothed over.
 - **30 events is small.** Binary framing gives roughly ±17pp at 95%. The corpus is Chinese-market, 2018–2026. Generalization is unproven.
@@ -124,8 +124,10 @@ full flag set under `--help`.
 
 ```bash
 # 0) MiroFish (upstream, AGPL-3.0) + local graph adapter, no Zep Cloud
-git clone https://github.com/666ghj/MiroFish && cd MiroFish && npm run setup:all && cp .env.example .env
-cp ../patches/zep_local.py backend/app/utils/    # then the 7-line zep.py change in docs/patches.md
+git clone https://github.com/666ghj/MiroFish && cd MiroFish
+git checkout 7657031ac01184afe2cb220f5ee3545573b5e843   # the commit our patches are pinned to
+git apply ../patches/000*.patch                        # 5 verified patches, see docs/patches.md
+npm run setup:all && cp .env.example .env
 cd .. && export LLM_API_KEY=sk-... LLM_BASE_URL=https://api.deepseek.com LLM_MODEL_NAME=deepseek-chat ZEP_LOCAL=1
 #    (or put the same four keys in a .env at the repo root; env vars win, .env is the fallback)
 
@@ -156,10 +158,12 @@ data/events.csv              # 30 public crisis events with sources + outcomes
 data/seeds/{id}.md           # pre-crisis (T-72h) information packs used as simulation seeds
 data/repeat_v02/             # v0.2 evidence: 90 judge records, v0.1 baseline, item merge, summaries
 data/failures.md             # events where we missed -- with post-mortem notes
+data/judge_calibration.md    # human calibration of the judge: status + template (not yet run; see docs/methodology.md §4)
 data/reports/25.md           # an earlier single-report sample from v0.1
-patches/zep_local.py         # local Zep replacement (the key enabler)
+patches/000*.patch           # 5 patches against upstream commit 7657031: local Zep adapter + 4 hooks (see docs/patches.md)
 scripts/backtest_runner.py   # v0.1 headless pipeline: graph -> simulation -> report (one run per event)
 scripts/score.py             # v0.1 LLM judge with fixed protocol
+scripts/make_seeds.py        # draft T-72h packs from data/events.csv (drafts only -- data/seeds/ is the frozen official set)
 scripts/repeat_runs.py       # v0.2: N repeated runs per event, resumable output layout
 scripts/score_repeat.py      # v0.2: score every repeat, same rubric as v0.1
 scripts/cluster_items.py     # v0.2: merge the same risk item across runs (for STA)

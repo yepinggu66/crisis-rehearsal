@@ -60,10 +60,12 @@ the baseline for the paired per-event replication check (`-0.02/3 ±0.18`).
 ## What this directory does *not* contain
 
 - The 90 generated rehearsal reports (~8.4k characters / ~23 KB each). Only the judge's
-  scoring of them is shipped, plus three full sample reports in `docs/reports/{1,25,28}.md`.
+  scoring of them is shipped, plus three full sample reports: `docs/reports/{1,28}.md` and
+  `data/reports/25.md`.
   You can recompute every published statistic, but you cannot independently re-judge the
   scores — and we say so in the README rather than implying otherwise.
-- Human calibration of the judge. Spot checks are in progress and are not part of 82.2%.
+- Human calibration of the judge. **Not yet run** (planned for v0.2.2); status, planned
+  sample and protocol are in `data/judge_calibration.md`. It is not part of 82.2%.
 
 ## Integrity
 

@@ -1,0 +1,58 @@
+diff --git a/backend/app/services/simulation_config_generator.py b/backend/app/services/simulation_config_generator.py
+index 2c6fbbf..1cdd529 100644
+--- a/backend/app/services/simulation_config_generator.py
++++ b/backend/app/services/simulation_config_generator.py
+@@ -271,6 +271,53 @@ class SimulationConfigGenerator:
+             SimulationParameters: 完整的模拟参数
+         """
+         logger.info(f"开始智能生成模拟配置: simulation_id={simulation_id}, 实体数={len(entities)}")
++        import os as _os
++        if _os.environ.get("ZEP_LOCAL_FAST", "").strip() in {"1", "true", "True", "yes"}:
++            # LOCAL_FAST_CONFIG：本地演示用确定性配置，避免小模型生成不稳定 JSON
++            _n = max(len(entities), 1)
++            _tc = TimeSimulationConfig(
++                total_simulation_hours=2,
++                minutes_per_round=60,
++                agents_per_hour_min=_n,
++                agents_per_hour_max=_n,
++                peak_activity_multiplier=1.5,
++                off_peak_activity_multiplier=0.3,
++            )
++            _posts = [{
++                "content": "【快讯】" + (simulation_requirement or "待推演事件")[:140],
++                "poster_agent_id": 0,
++                "type": "initial",
++            }]
++            _ec = EventConfig(initial_posts=_posts, scheduled_events=[],
++                              hot_topics=[], narrative_direction="")
++            _acs = []
++            for _i, _e in enumerate(entities):
++                _acs.append(AgentActivityConfig(
++                    agent_id=_i,
++                    entity_uuid=getattr(_e, "uuid", ""),
++                    entity_name=getattr(_e, "name", f"entity{_i}"),
++                    entity_type=(_e.get_entity_type() if hasattr(_e, "get_entity_type") else "Entity") or "Entity",
++                    activity_level=0.85,
++                    posts_per_hour=2.0,
++                    comments_per_hour=2.0,
++                    stance="neutral",
++                    influence_weight=1.0,
++                ))
++            return SimulationParameters(
++                simulation_id=simulation_id,
++                project_id=project_id,
++                graph_id=graph_id,
++                simulation_requirement=simulation_requirement,
++                time_config=_tc,
++                agent_configs=_acs,
++                event_config=_ec,
++                twitter_config=PlatformConfig(platform="twitter"),
++                reddit_config=PlatformConfig(platform="reddit"),
++                llm_model=self.model_name,
++                llm_base_url=self.base_url,
++                generation_reasoning="LOCAL_FAST_CONFIG（本地演示模板，未经 LLM 生成）",
++            )
++
+         
+         # 计算总步骤数
+         num_batches = math.ceil(len(entities) / self.AGENTS_PER_BATCH)

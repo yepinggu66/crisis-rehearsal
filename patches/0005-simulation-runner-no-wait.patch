@@ -1,0 +1,20 @@
+diff --git a/backend/app/services/simulation_runner.py b/backend/app/services/simulation_runner.py
+index b1b9989..36038b6 100644
+--- a/backend/app/services/simulation_runner.py
++++ b/backend/app/services/simulation_runner.py
+@@ -519,6 +519,15 @@ class SimulationRunner:
+                 script_path,
+                 "--config", config_path,  # 使用完整配置文件路径
+             ]
++
++            # 本地模式：跑完指定轮数后立即退出（否则脚本会进入等待命令模式）
++            import os as _os
++            _local_mode = (
++                _os.environ.get("ZEP_LOCAL", "").strip() in {"1", "true", "True", "yes"}
++                or _os.environ.get("ZEP_LOCAL_FAST", "").strip() in {"1", "true", "True", "yes"}
++            )
++            if _local_mode:
++                cmd.append("--no-wait")
+             
+             # 如果指定了最大轮数，添加到命令行参数
+             if max_rounds is not None and max_rounds > 0:

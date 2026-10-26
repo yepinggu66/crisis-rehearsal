@@ -1,0 +1,18 @@
+diff --git a/backend/app/services/ontology_generator.py b/backend/app/services/ontology_generator.py
+index 77f34ec..1b687eb 100644
+--- a/backend/app/services/ontology_generator.py
++++ b/backend/app/services/ontology_generator.py
+@@ -232,6 +232,13 @@ class OntologyGenerator:
+         ]
+         
+         # 调用LLM
++        import os as _os
++        _override = _os.environ.get("ONTOLOGY_OVERRIDE", "").strip()
++        if _override and _os.path.exists(_override):
++            import json as _json
++            with open(_override, encoding="utf-8") as _fh:
++                return self._validate_and_process(_json.load(_fh))
++
+         result = self.llm_client.chat_json(
+             messages=messages,
+             temperature=0.3,
