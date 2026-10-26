@@ -64,8 +64,14 @@ sha256sum backend/app/utils/zep_local.py
 ```
 
 On a Windows checkout with `core.autocrlf=true`, Git writes the file with CRLF, so that exact
-hash will not match — apply with `git -c core.autocrlf=false apply ../patches/000*.patch` if you
-want the byte-identical file, or just rely on the `git diff --cached --stat` line counts above.
+hash will not match — the patch still applies and the content is identical after EOL
+normalisation. Apply with the same EOL setting you checked out with:
+
+- default `git clone` (CRLF working tree) → plain `git apply`;
+- `git -c core.autocrlf=false clone` (LF working tree) → `git -c core.autocrlf=false apply`,
+  which gives the byte-identical file above.
+
+Mixing the two settings makes the patch context lines mismatch, so don't.
 
 ## Not a patch: the OASIS recsys default (#6)
 
