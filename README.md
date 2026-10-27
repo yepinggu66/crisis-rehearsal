@@ -170,7 +170,7 @@ data/seeds/{id}.md           # pre-crisis (T-72h) information packs used as simu
 data/repeat_v02/             # v0.2 evidence: 90 judge records, v0.1 baseline, item merge, summaries
 data/failures.md             # events where we missed -- with post-mortem notes
 data/judge_calibration.md    # human calibration of the judge: status + template (not yet run; see docs/methodology.md §4)
-data/reports/25.md           # an earlier single-report sample from v0.1
+data/reports/{6,25}.md       # single-report samples from the v0.1 grid: Luckin Coffee, livestream mooncakes
 patches/000*.patch           # 5 patches against upstream commit 7657031: local Zep adapter + 4 hooks (see docs/patches.md)
 scripts/backtest_runner.py   # v0.1 headless pipeline: graph -> simulation -> report (one run per event)
 scripts/score.py             # v0.1 LLM judge with fixed protocol
