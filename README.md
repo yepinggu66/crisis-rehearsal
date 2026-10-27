@@ -101,7 +101,7 @@ This is the section most benchmark write-ups skip, so here is ours.
 4. Because only 17% of events are fully stable, we commit to "a consistent level across repeated runs", never to "the same conclusion every time". High-variance events must be run multiple times and read as a consensus.
 5. This is a rehearsal / backtest producing **directional evidence** — not a forecast, not a probability, not "we know what happens next".
 
-**What we do not ship.** The judge's scores for all 90 runs are in this repo, but the 90 generated reports (~8.4k characters / ~23 KB each) are not. You can recompute every published statistic; you cannot independently re-judge the reports from this repo alone. Three full samples are shipped — `docs/reports/{1,28}.md` and `data/reports/25.md`. The judge prompt is fixed, Chinese and unchanged since v0.1 (`scripts/score_repeat.py`), so the two batches stay comparable.
+**What we do not ship.** The judge's scores for all 90 runs are in this repo, but the 90 generated reports (~8.4k characters / ~23 KB each) are not. You can recompute every published statistic; you cannot independently re-judge the reports from this repo alone. Four full samples are shipped — `docs/reports/{1,28}.md` and `data/reports/{6,25}.md`. The judge prompt is fixed, Chinese and unchanged since v0.1 (`scripts/score_repeat.py`), so the two batches stay comparable.
 
 ## Honest limitations
 
@@ -111,6 +111,7 @@ This is the section most benchmark write-ups skip, so here is ours.
 - **30 events is small.** Binary framing gives roughly ±17pp at 95%. The corpus is Chinese-market, 2018–2026. Generalization is unproven.
 - **There is no control condition in this release.** No human-analyst baseline, no ablation, no dumb baseline. The 82.2% describes the pipeline against a fixed rubric; it is not a claim that the pipeline beats an analyst.
 - **2 rounds of simulation is a simplification** of real opinion dynamics. It is enough to produce escalation paths and the right questions; it is not a model of society.
+- **Agent interviews came back empty in the v0.1 grid.** Every v0.1 report carries the engine's own caveat — "agent interview interface returned no valid records (0/19 interviews)". The top-3 ranking therefore rests on the knowledge-graph relations and propagation paths, **not** on first-person testimony from the simulated agents. `data/reports/6.md` is a verbatim example: the caveat appears in all four chapters. The interview step has not been re-run on v0.2 output.
 - **Negative samples are included.** Events where the engine should not have claimed an edge are in the corpus and they count against the score.
 - **Failures are in the repo** (`data/failures.md`), with post-mortem notes. We do not hide misses.
 
