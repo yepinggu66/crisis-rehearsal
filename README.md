@@ -1,7 +1,7 @@
 # Crisis Rehearsal Engine — rehearse the crisis before it happens
 
 > ▶ **Watch the 2:42 demo:** https://youtu.be/pj7PKonS2Ns
-> 🧵 **Launch thread on X:** https://x.com/PingguYe/status/2114413502475731030
+> 🧵 **Launch thread on X:** https://x.com/PingguYe/status/2115103453110468641
 
 **TL;DR** — We take a real reputation crisis, rewind to 72 hours before it broke, and give a swarm-simulation engine (MiroFish) only the public information available at that moment. 7–12 persona agents — journalists, retail investors, regulators, short sellers, competitors — react for 2 rounds on a simulated social feed, and an 8k-character rehearsal report comes out. An LLM judge then scores the report's top-3 risks against what actually happened.
 
@@ -70,6 +70,17 @@ The cases we lost: `data/failures.md`.
 - **Our own stability score is disclosed, including the failure.** STA 58 against a pass line of 60: J̄ item agreement 0.54, CV 0.08, Kendall W 0.29. We publish it because a metric you only show when it passes is marketing.
 - **Honest wording upgraded.** v0.1 said "83%". The defensible statement is "Top-3 risk hit rate 82.2%, event-mean graded score, n=30 events × 3 runs" — a graded 0–3 score averaged across events, not a binary hit/miss rate, and not a probability about the future.
 - **New scripts.** `repeat_runs.py`, `score_repeat.py`, `cluster_items.py`, `ci_stats.py`, `sta_stats.py` alongside `backtest_runner.py` and `score.py`. The v0.2 statistics scripts use the standard library only.
+
+### Seed hygiene (v0.2.2)
+
+Every file in data/seeds/ is restricted to what was publicly available in the 72 hours **before** T0.
+As of v0.2.2 the packs were swept for artifacts that violated that rule:
+
+- removed 91 待核 placeholders (unfilled authoring slots);
+- moved the outcome-derived 可预测性 rating out of the seeds — it lives only in data/events.csv (predictability column);
+- truncated 首发平台 chains at the point where they started describing post-T0 outcomes (e.g. a disclosure date, an app takedown, a regulator penalty).
+
+If you spot a remaining post-T0 clause, open an issue. The seeds are meant to be auditable, not to look complete.
 
 ## Reproducibility & stability
 
