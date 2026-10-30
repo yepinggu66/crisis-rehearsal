@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 880" width="1200" height="880" role="img" aria-labelledby="title desc">
+  <title id="title">Crisis Rehearsal v0.3 architecture</title>
+  <desc id="desc">Four-layer diagram: clean-room T-72h seed packs, upstream MiroFish/OASIS swarm simulation, the shipped evidence pack and statistics, and the standard-library CLI interfaces.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .title { font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 700; fill: #0f172a; }
+      .subtitle { font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; font-size: 14px; fill: #475569; }
+      .band-label { font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; font-size: 12.5px; font-weight: 700; letter-spacing: 1.1px; fill: #334155; }
+      .box-title { font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 600; fill: #0f172a; }
+      .box-note { font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; font-size: 12px; fill: #475569; }
+      .mono { font-family: "Cascadia Mono", "Consolas", "SFMono-Regular", Menlo, monospace; font-size: 13px; fill: #0f172a; }
+      .legend { font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; font-size: 12px; fill: #475569; }
+      .foot { font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; font-size: 12.5px; fill: #475569; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="880" fill="#ffffff"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#0f172a"/>
+
+  <text class="title" x="40" y="54">Crisis Rehearsal v0.3 — system architecture</text>
+  <text class="subtitle" x="40" y="80">Rewind a real crisis to T−72h · swarm simulation · 30-event public backtest · runs on your own infrastructure</text>
+  <text class="subtitle" x="1160" y="54" text-anchor="end">危机预演 · 可私有化部署</text>
+
+  <!-- Legend -->
+  <g>
+    <rect x="880" y="92" width="14" height="14" rx="3" fill="#e8f0fe" stroke="#2563eb"/>
+    <text class="legend" x="902" y="104">shipped in this repo</text>
+    <rect x="1020" y="92" width="14" height="14" rx="3" fill="#f1f5f9" stroke="#64748b"/>
+    <text class="legend" x="1042" y="104">upstream MiroFish / OASIS</text>
+  </g>
+
+  <!-- Layer 1 -->
+  <rect x="40" y="112" width="1120" height="150" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text class="band-label" x="56" y="136">1 · CLEAN ROOM — data in, no hindsight (yours, offline)</text>
+  <rect x="60" y="150" width="240" height="86" rx="8" fill="#e8f0fe" stroke="#2563eb"/>
+  <text class="box-title" x="76" y="178">Public sources</text>
+  <text class="box-note" x="76" y="200">news · filings · regulator notices</text>
+  <text class="box-note" x="76" y="218">no client data</text>
+
+  <rect x="340" y="150" width="250" height="86" rx="8" fill="#f1f5f9" stroke="#64748b"/>
+  <text class="box-title" x="356" y="178">Event library</text>
+  <text class="box-note" x="356" y="200">data/events.csv · 30 events</text>
+  <text class="box-note" x="356" y="218">2018–2026 · Chinese market</text>
+
+  <rect x="630" y="150" width="260" height="86" rx="8" fill="#e8f0fe" stroke="#2563eb"/>
+  <text class="box-title" x="646" y="178">T−72h seed pack</text>
+  <text class="box-note" x="646" y="200">data/seeds/{id}.md</text>
+  <text class="box-note" x="646" y="218">clean-room rule: pre-T0 only</text>
+
+  <rect x="930" y="150" width="210" height="86" rx="8" fill="#ecfdf5" stroke="#059669"/>
+  <text class="box-title" x="946" y="178">Evidence manifest</text>
+  <text class="box-note" x="946" y="200">data/evidence.sha256</text>
+  <text class="box-note" x="946" y="218">crh verify --write</text>
+
+  <line x1="300" y1="193" x2="338" y2="193" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="590" y1="193" x2="628" y2="193" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <path d="M 760 236 C 760 284 700 270 700 328" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- Layer 2 -->
+  <rect x="40" y="292" width="1120" height="160" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text class="band-label" x="56" y="316">2 · SIMULATION — upstream MiroFish + OASIS, 5 patches pinned to commit 7657031 (AGPL / Apache-2.0)</text>
+
+  <rect x="60" y="330" width="250" height="96" rx="8" fill="#e8f0fe" stroke="#2563eb"/>
+  <text class="box-title" x="76" y="358">Local graph adapter</text>
+  <text class="box-note" x="76" y="380">JSON graph, no Zep Cloud</text>
+  <text class="box-note" x="76" y="398">patch 0001 + 0002</text>
+
+  <rect x="350" y="330" width="280" height="96" rx="8" fill="#f1f5f9" stroke="#64748b"/>
+  <text class="box-title" x="366" y="358">Persona swarm</text>
+  <text class="box-note" x="366" y="380">7–12 agents · 2 rounds</text>
+  <text class="box-note" x="366" y="398">simulated Twitter / Reddit</text>
+
+  <rect x="670" y="330" width="260" height="96" rx="8" fill="#f1f5f9" stroke="#64748b"/>
+  <text class="box-title" x="686" y="358">Rehearsal report</text>
+  <text class="box-note" x="686" y="380">~8k characters per event</text>
+  <text class="box-note" x="686" y="398">Top-3 risks + path</text>
+
+  <rect x="970" y="330" width="170" height="96" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-dasharray="5 3"/>
+  <text class="box-title" x="986" y="358">LLM endpoint</text>
+  <text class="box-note" x="986" y="380">DeepSeek API</text>
+  <text class="box-note" x="986" y="398">Ollama / vLLM</text>
+
+  <line x1="310" y1="378" x2="348" y2="378" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="630" y1="378" x2="668" y2="378" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <path d="M 1055 426 L 1055 440 L 495 440 L 495 428" fill="none" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arrow)"/>
+
+  <!-- Layer 3 -->
+  <rect x="40" y="492" width="1120" height="166" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text class="band-label" x="56" y="516">3 · EVIDENCE &amp; SCORING — this repository (AGPL-3.0), recomputable with no API key</text>
+
+  <rect x="60" y="532" width="230" height="100" rx="8" fill="#e8f0fe" stroke="#2563eb"/>
+  <text class="box-title" x="76" y="560">LLM judge</text>
+  <text class="box-note" x="76" y="582">fixed Chinese rubric</text>
+  <text class="box-note" x="76" y="600">same family as simulator</text>
+  <text class="box-note" x="76" y="618">not human-calibrated (yet)</text>
+
+  <rect x="330" y="532" width="250" height="100" rx="8" fill="#e8f0fe" stroke="#2563eb"/>
+  <text class="box-title" x="346" y="560">Evidence pack</text>
+  <text class="box-note" x="346" y="582">data/repeat_v02/</text>
+  <text class="box-note" x="346" y="600">90 judge records · 30 events</text>
+  <text class="box-note" x="346" y="618">sha256-pinned</text>
+
+  <rect x="620" y="532" width="240" height="100" rx="8" fill="#e8f0fe" stroke="#2563eb"/>
+  <text class="box-title" x="636" y="560">crh stats</text>
+  <text class="box-note" x="636" y="582">82.2% Top-3 hit rate</text>
+  <text class="box-note" x="636" y="600">95% CI 78.5–85.9</text>
+  <text class="box-note" x="636" y="618">STA 58 · pass line 60</text>
+
+  <rect x="900" y="532" width="240" height="100" rx="8" fill="#e8f0fe" stroke="#2563eb"/>
+  <text class="box-title" x="916" y="560">crh verify</text>
+  <text class="box-note" x="916" y="582">per-file sha256</text>
+  <text class="box-note" x="916" y="600">exit 1 on any mismatch</text>
+  <text class="box-note" x="916" y="618">evidence is immutable</text>
+
+  <line x1="800" y1="426" x2="800" y2="530" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="290" y1="582" x2="328" y2="582" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="580" y1="582" x2="618" y2="582" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="860" y1="582" x2="898" y2="582" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- Layer 4 -->
+  <rect x="40" y="688" width="1120" height="120" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text class="band-label" x="56" y="712">4 · INTERFACES — <tspan class="mono">crh</tspan> · Python ≥ 3.9 · standard library only</text>
+
+  <rect x="60" y="726" width="170" height="46" rx="8" fill="#0f172a"/>
+  <text class="mono" x="78" y="754" fill="#f8fafc">crh demo</text>
+  <rect x="250" y="726" width="220" height="46" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+  <text class="mono" x="268" y="754">crh report --event N</text>
+  <rect x="490" y="726" width="220" height="46" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+  <text class="mono" x="508" y="754">crh pack init / validate</text>
+  <rect x="730" y="726" width="140" height="46" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+  <text class="mono" x="748" y="754">crh site</text>
+
+  <text class="box-note" x="900" y="740">→ self-contained HTML dossier</text>
+  <text class="box-note" x="900" y="758">→ scenario pack (JSON)</text>
+  <text class="box-note" x="900" y="776">→ static evidence site</text>
+
+  <line x1="760" y1="666" x2="760" y2="724" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-blue)"/>
+  <line x1="1050" y1="666" x2="1050" y2="724" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-blue)"/>
+
+  <!-- Footer -->
+  <line x1="40" y1="832" x2="1160" y2="832" stroke="#e2e8f0"/>
+  <text class="foot" x="40" y="856">verify / stats / report / demo run fully offline. Band 2 (full rehearsal) needs an LLM endpoint; if it is a cloud API, prompt content leaves your network — see docs/deployment.md.</text>
+</svg>

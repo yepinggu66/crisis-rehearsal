@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use Crisis Rehearsal in research, a report or an evaluation, please cite it as below."
+title: "Crisis Rehearsal: rehearsal of corporate crises at T-72h with a 30-event public backtest"
+type: software
+authors:
+  - name: "yepinggu66 (PingguYe)"
+    website: "https://github.com/yepinggu66"
+version: "0.3.0"
+date-released: "2026-10-31"
+license: "AGPL-3.0-only"
+repository-code: "https://github.com/yepinggu66/crisis-rehearsal"
+url: "https://github.com/yepinggu66/crisis-rehearsal"
+abstract: >-
+  Crisis Rehearsal rewinds a real reputation crisis to 72 hours before it became public and
+  gives a swarm-simulation engine (MiroFish/OASIS with a local graph adapter) only the
+  information that was publicly available at that moment. 7-12 persona agents react for two
+  rounds on a simulated social feed, a rehearsal report is generated, and a fixed LLM judge
+  scores the report's Top-3 risks against the documented real outcome. The published backtest
+  covers 30 publicly documented Chinese corporate crises (2018-2026), each run three times
+  (90 runs). Event-mean Top-3 risk hit rate is 82.2% (95% CI 78.5-85.9, t-distribution);
+  within-event SD is 0.26/3; only 5/30 events scored identically across all three runs; the
+  internal stability metric STA is 58 against a pass line of 60, so the released result fails
+  its own stability bar. The number is directional evidence from a backtest, not a forecast.
+  The evidence pack, scoring records, failures and limitations are shipped and recomputable
+  without an API key.
+keywords:
+  - crisis rehearsal
+  - reputation risk
+  - swarm simulation
+  - LLM agents
+  - backtest
+  - reproducibility
+  - scenario planning
+  - enterprise risk
+  - open source
