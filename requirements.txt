@@ -1,11 +1,19 @@
-# Runtime dependencies.
+# Dependencies.
 #
-# The v0.2 statistics scripts are standard-library only and need nothing below:
+# The v0.3 CLI is STANDARD LIBRARY ONLY — nothing below is needed for
+#   pip install -e .
+#   crh verify / stats / report / demo / pack / site
+# It runs on Python >= 3.9 on an air-gapped machine: no network, no API key.
+#
+# The v0.2 statistics scripts are also standard-library only and need nothing
+# below:
 #   scripts/ci_stats.py, scripts/sta_stats.py
 #   scripts/score_repeat.py, scripts/cluster_items.py, scripts/repeat_runs.py
 # (numpy is used to accelerate the bootstrap CI when it happens to be installed;
-#  a pure-Python fallback is built in.)
+#  a pure-Python fallback is built in and the CLI labels which one ran.)
 #
 # Only the v0.1 pipeline scripts that talk to a local MiroFish server need httpx:
 #   scripts/backtest_runner.py, scripts/score.py
+# Install this file only when you want to regenerate the 90-run grid
+# (equivalent to `pip install -e ".[llm]"`).
 httpx>=0.24

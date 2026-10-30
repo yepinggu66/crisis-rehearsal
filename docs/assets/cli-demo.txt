@@ -1,0 +1,16 @@
+Crisis Rehearsal Engine 0.3.0 — offline demo
+==========================================================================
+repo      : .
+output    : demo_out
+python    : 3.12.2
+
+[1/4] evidence integrity : PASS — 43 files match data/evidence.sha256
+[2/4] published numbers  : 82.2% Top-3 hit rate (95% CI 78.5-85.9, n=30 events)
+                           within-event SD 0.26/3, 5/30 identical, STA 58 (FAILED, pass line 60)
+                           matches published README numbers: yes
+[3/4] event dossiers     : 4 written (events with a shipped rehearsal report: 1, 6, 25, 28)
+[4/4] index              : demo_out/index.html
+
+done in 0.16s — offline, no API key, no network.
+Open demo_out/index.html to read the dossiers.
+Next: `crh stats --json` for the full number set, `crh report --event N` for any of the 30 events.

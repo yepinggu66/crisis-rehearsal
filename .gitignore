@@ -7,3 +7,21 @@ node_modules/
 .venv/
 *.log
 local_zep/
+
+# --- v0.3.0 CLI (crh): build artifacts and generated output ---
+# Anchored where it matters: data/reports/ and docs/reports/ are shipped
+# evidence and must never be ignored, so only the repository-root output
+# directories are listed here.
+*.egg-info/
+/build/
+/dist/
+/.pytest_cache/
+# Both spellings are produced in the docs: default is demo_out/, the README quick
+# start uses `crh demo --out demo`.
+/demo/
+/demo_out/
+/reports/
+/site/
+/scenario_packs/
+.coverage
+htmlcov/

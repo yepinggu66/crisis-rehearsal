@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crisis-rehearsal"
+version = "0.3.0"
+description = "Rehearse the crisis 72 hours before it happens: an offline, zero-dependency evidence workstation for the 30-event public backtest."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "AGPL-3.0-only" }
+authors = [{ name = "Crisis Rehearsal contributors" }]
+keywords = [
+    "crisis-management",
+    "reputation-risk",
+    "swarm-simulation",
+    "backtest",
+    "evidence-workstation",
+    "offline",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Government",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Sociology",
+]
+# Runtime dependencies: none. The CLI is standard library only on purpose:
+# it has to run on an air-gapped, offline workstation with Python >= 3.9.
+dependencies = []
+
+[project.optional-dependencies]
+# Only needed to regenerate the 90-run grid (MiroFish runner + judge talk to an
+# OpenAI-compatible HTTP endpoint). The evidence workstation never imports it.
+llm = ["httpx>=0.24"]
+dev = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://github.com/yepinggu66/crisis-rehearsal"
+Repository = "https://github.com/yepinggu66/crisis-rehearsal"
+Issues = "https://github.com/yepinggu66/crisis-rehearsal/issues"
+Changelog = "https://github.com/yepinggu66/crisis-rehearsal/blob/main/CHANGELOG.md"
+
+[project.scripts]
+crh = "crisis_rehearsal.cli:main"
+crisis-rehearsal = "crisis_rehearsal.cli:main"
+
+[tool.setuptools]
+packages = ["crisis_rehearsal"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+crisis_rehearsal = ["schema/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,369 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yepinggu66/crisis-rehearsal/schema/scenario_pack.schema.json",
+  "title": "Crisis Rehearsal scenario pack",
+  "description": "A portable, machine-checkable rehearsal scenario. A pack describes what an organisation knows before a crisis (timeline, stakeholders, regulatory triggers, escalation ladder, KPIs, decisions and evidence). It is the input contract between a crisis team and the rehearsal engine. Honesty rules: regulatory_triggers[].status='mapped' means the pack maps to a requirement of a framework - it is NOT a certification, an attestation or an audit result; 'unverified' means the mapping has not been reviewed. Packs with template=true are scaffolds, not delivered cases.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pack_version",
+    "template",
+    "meta",
+    "timeline",
+    "stakeholders",
+    "regulatory_triggers",
+    "escalation_ladder",
+    "kpis",
+    "decision_log",
+    "evidence",
+    "provenance"
+  ],
+  "properties": {
+    "pack_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$",
+      "description": "Version of this pack document, e.g. 0.3.0. Independent of the engine version."
+    },
+    "template": {
+      "type": "boolean",
+      "description": "true = scaffold produced by `crh pack init` (replace the placeholders); false = a pack that a team has filled in."
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["id", "name", "sector", "jurisdiction", "classification", "lang"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]{1,63}$",
+          "description": "Stable lower-case id, unique inside one organisation."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200,
+          "description": "Human-readable scenario name, in meta.lang."
+        },
+        "sector": {
+          "type": "string",
+          "enum": ["enterprise", "government", "finance", "other"],
+          "description": "Sector template used for defaults. Industry packs beyond these four are roadmap, not shipped material."
+        },
+        "jurisdiction": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64,
+          "description": "Legal jurisdiction(s) that apply, e.g. CN, CN-HK, EU. Keep it explicit: regulatory mapping is jurisdiction-specific."
+        },
+        "classification": {
+          "type": "string",
+          "enum": ["public", "internal", "confidential", "restricted"],
+          "description": "Data classification of the pack contents. A pack that contains client data must never be marked public."
+        },
+        "lang": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 16,
+          "description": "Language of the free-text fields (BCP-47 tag such as zh, zh-CN, en)."
+        },
+        "owner": {
+          "type": "string",
+          "description": "Team accountable for keeping this pack current."
+        },
+        "updated": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+          "description": "Last reviewed date (ISO 8601 date)."
+        }
+      }
+    },
+    "timeline": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["T-72h", "T-24h", "T0", "T+24h", "T+7d"],
+      "description": "What is known or planned at each rehearsal checkpoint. T0 is the moment the crisis becomes public. Everything before T0 must be public information or an internal signal already known at that time; everything after T0 is a plan, not a fact.",
+      "properties": {
+        "T-72h": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The information clean room: only what is knowable 72 hours before T0."
+        },
+        "T-48h": {
+          "type": "string",
+          "minLength": 1
+        },
+        "T-24h": {
+          "type": "string",
+          "minLength": 1
+        },
+        "T0": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The public trigger."
+        },
+        "T+24h": {
+          "type": "string",
+          "minLength": 1
+        },
+        "T+72h": {
+          "type": "string",
+          "minLength": 1
+        },
+        "T+7d": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "stakeholders": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100,
+      "description": "Parties whose reaction determines the outcome. Influence is a 1-5 ordinal judgement, not a measurement.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["role", "kind", "influence"],
+        "properties": {
+          "role": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 200
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["internal", "external", "regulator", "media", "customer", "investor", "employee", "competitor", "other"]
+          },
+          "influence": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "stance": {
+            "type": "string",
+            "description": "Expected or observed stance toward the organisation."
+          },
+          "interests": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "regulatory_triggers": {
+      "type": "array",
+      "maxItems": 100,
+      "description": "Legal/regulatory hooks that the scenario must map to. status='mapped' documents a mapping reviewed by the pack owner; it is not a certification. status='unverified' is an open gap and must be resolved by counsel before the pack is used for a real decision.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["framework", "jurisdiction", "status"],
+        "properties": {
+          "framework": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 200,
+            "description": "Name of the law, regulation, standard or internal policy."
+          },
+          "clause": {
+            "type": "string",
+            "description": "Optional article/section reference."
+          },
+          "jurisdiction": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 64
+          },
+          "requirement": {
+            "type": "string",
+            "description": "What the framework requires in plain language."
+          },
+          "status": {
+            "type": "string",
+            "enum": ["mapped", "unverified", "not-applicable"]
+          },
+          "evidence": {
+            "type": "string",
+            "description": "Where the mapping is documented (internal reference, not a certificate)."
+          }
+        }
+      }
+    },
+    "escalation_ladder": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "description": "Who decides what, at which severity, within which time budget.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["level", "trigger", "owner", "action"],
+        "properties": {
+          "level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20
+          },
+          "trigger": {
+            "type": "string",
+            "minLength": 2,
+            "description": "Observable condition that escalates to this level."
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Role, not name, so the pack survives staff changes."
+          },
+          "action": {
+            "type": "string",
+            "minLength": 2
+          },
+          "sla_hours": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 720,
+            "description": "Time budget for this level, in hours."
+          }
+        }
+      }
+    },
+    "kpis": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 50,
+      "description": "What the rehearsal measures. Every KPI must name its unit and data source so it can be recomputed rather than trusted.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["id", "name", "target", "unit"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 200
+          },
+          "target": {
+            "description": "Target value; a number or a descriptive threshold string.",
+            "type": ["number", "string"]
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "window": {
+            "type": "string",
+            "description": "Measurement window, e.g. first 24h after T0."
+          },
+          "source": {
+            "type": "string",
+            "description": "Where the number comes from (system, report or dataset)."
+          }
+        }
+      }
+    },
+    "decision_log": {
+      "type": "array",
+      "maxItems": 500,
+      "description": "Decisions already taken about this scenario, with rationale. Empty is valid: it means nothing has been decided yet.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["at", "decision", "owner"],
+        "properties": {
+          "at": {
+            "type": "string",
+            "minLength": 1,
+            "description": "ISO 8601 timestamp or rehearsal checkpoint label (T-72h, T0, ...)."
+          },
+          "decision": {
+            "type": "string",
+            "minLength": 2
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "Paths or ids of evidence entries supporting the decision."
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "maxItems": 1000,
+      "description": "Files the pack cites, with their sha256 so an auditor can tell whether the bytes changed. Empty is valid for a scaffold.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["path", "sha256", "kind"],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["public-source", "internal-document", "simulation-output", "judge-record", "other"]
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["author", "created", "source", "license"],
+      "properties": {
+        "author": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "created": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Where the scenario material comes from. Public sources only unless the pack is classified internal or above."
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1,
+          "description": "How the pack may be shared, e.g. CC-BY-4.0 or internal-only."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

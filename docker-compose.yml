@@ -1,0 +1,45 @@
+# Crisis Rehearsal Engine — offline evidence workstation (docker compose).
+#
+# 这是「证据工作站 / 离线演示」的编排，不是完整的 MiroFish 引擎。
+# This file orchestrates the EVIDENCE WORKSTATION, not the full MiroFish engine:
+#
+#   * it verifies the shipped evidence pack, recomputes the published numbers and
+#     renders the self-contained HTML dossiers — offline, no API key, no network;
+#   * it does NOT contain the swarm simulation. Regenerating the 90-run grid needs
+#     a running MiroFish server (AGPL-3.0, pinned upstream commit + 5 patches) and
+#     an LLM API key. Those are out of scope for this compose file on purpose:
+#     a "rehearsal engine" that ships without its simulation stage must say so,
+#     and this one does. See README "Reproduce it — level B".
+#
+# Usage:
+#   docker compose run --rm evidence-station demo --out /work/demo_out
+#   docker compose run --rm evidence-station verify
+#   docker compose run --rm evidence-station stats
+#   docker compose run --rm evidence-station report --event 6 --out /work/demo_out
+#   docker compose up --build        # runs the default demo command
+#
+# Output lands in ./demo_out on the host (the container root filesystem is
+# read-only apart from that volume and /tmp).
+
+services:
+  evidence-station:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: crisis-rehearsal:0.3.0
+    container_name: crh-evidence-station
+    command: ["demo", "--out", "/work/demo_out"]
+    environment:
+      CR_ROOT: /app
+      PYTHONIOENCODING: utf-8
+    volumes:
+      - ./demo_out:/work/demo_out
+    working_dir: /app
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: "no"

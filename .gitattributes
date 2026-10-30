@@ -1,4 +1,25 @@
+# Line endings: the repository stores LF for every text file and every working
+# tree checks out LF, on Windows too (Git for Windows defaults to
+# core.autocrlf=true, which would otherwise produce CRLF checkouts and make
+# byte-level sha256 hashes platform-dependent).
+#
+# This matters here: `crh verify` hashes the raw bytes of data/** against
+# data/evidence.sha256, and the generated dossiers print sha256 of the report
+# files they embed. A CRLF checkout would make the same commit verify differently
+# on Windows and Linux. `data/**` is also listed explicitly so the guarantee is
+# obvious to anyone reading the evidence manifest.
+* text=auto eol=lf
+
 # Patches are applied with `git apply`, which matches context lines byte for byte.
-# Never let Git rewrite their line endings (a CRLF-converted patch fails to apply on an LF
+# Never let Git rewrite their line endings (a CRLF-converted patch fails to apply on LF
 # checkout, and vice versa): keep them as-is.
 *.patch -text
+
+# Binary assets: never text-normalise.
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.gif -text
+*.zip -text
+
+data/** text eol=lf
