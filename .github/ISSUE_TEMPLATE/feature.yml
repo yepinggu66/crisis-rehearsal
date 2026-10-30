@@ -1,0 +1,65 @@
+name: Feature request
+description: Suggest a new capability, a scenario-pack field, or a documentation improvement.
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing: check the [ROADMAP](https://github.com/yepinggu66/crisis-rehearsal/blob/main/ROADMAP.md) and the two pinned roadmap issues.
+        Features that change published statistics, the judge protocol, or `data/**` need a methodology discussion first — open an issue before a PR.
+        Security issues must **not** go here: follow [SECURITY.md](https://github.com/yepinggu66/crisis-rehearsal/blob/main/SECURITY.md).
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the situation, not the solution. Who is blocked by it?
+      placeholder: "When I run a rehearsal for a government scenario, I cannot record ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What should happen? Include command names and expected output if relevant.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What did you try instead? Why is it not enough?
+    validations:
+      required: false
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - CLI (`crh` command)
+        - Scenario pack / schema
+        - HTML rehearsal dossier
+        - Statistics / methodology
+        - Data / event library
+        - Docs
+        - Deployment / packaging
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      description: The evidence pack is a shipped artifact; changes there are held to a stricter standard.
+      options:
+        - label: This does not require editing existing files under `data/**` (new files/sources only).
+          required: false
+        - label: This may change published numbers (82.2%, CI, STA), and I understand it needs a methodology issue first.
+          required: false
+        - label: I am willing to open a PR for this.
+          required: false

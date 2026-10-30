@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Crisis Rehearsal — social preview 1280x640</title>
+<style>
+  html,body{margin:0;padding:0;width:1280px;height:640px;overflow:hidden;background:#0b1220;}
+  .card{box-sizing:border-box;width:1280px;height:640px;padding:64px 72px;position:relative;
+        background:radial-gradient(1200px 520px at 88% -10%, #16305a 0%, #0b1220 62%);color:#e8eef9;
+        font-family:"Segoe UI","Microsoft YaHei",system-ui,-apple-system,sans-serif;}
+  .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),rgba(0,0,0,.25));}
+  .kicker{position:relative;display:inline-flex;align-items:center;gap:12px;font-size:20px;letter-spacing:.14em;text-transform:uppercase;color:#7fd4ff;font-weight:600}
+  .dot{width:10px;height:10px;border-radius:50%;background:#37d67a;box-shadow:0 0 18px #37d67a}
+  h1{position:relative;margin:26px 0 0;font-size:82px;line-height:1.02;font-weight:750;letter-spacing:-.02em}
+  h1 .accent{color:#7fd4ff}
+  .sub{position:relative;margin-top:22px;font-size:30px;line-height:1.35;color:#aebbd0;max-width:980px}
+  .stats{position:absolute;left:72px;bottom:104px;display:flex;gap:54px}
+  .stat .n{font-size:44px;font-weight:750;color:#ffffff;letter-spacing:-.02em}
+  .stat .l{font-size:18px;color:#8ea0b8;margin-top:6px;letter-spacing:.02em}
+  .foot{position:absolute;left:72px;right:72px;bottom:40px;display:flex;justify-content:space-between;align-items:center;font-size:18px;color:#7e8ea6}
+  .repo{color:#cfdcef}
+  .badge{border:1px solid rgba(127,212,255,.35);color:#9fdcff;border-radius:999px;padding:8px 18px;font-size:16px;letter-spacing:.04em}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="grid"></div>
+    <div class="kicker"><span class="dot"></span>Open-source crisis rehearsal engine</div>
+    <h1>Rehearse the crisis<br><span class="accent">72 hours before it happens.</span></h1>
+    <div class="sub">Swarm simulation of journalists, investors, regulators and competitors — backtested on 30 public corporate crises, with all evidence and failure cases published.</div>
+    <div class="stats">
+      <div class="stat"><div class="n">30 events</div><div class="l">public crises, T-72h seeds</div></div>
+      <div class="stat"><div class="n">90 runs</div><div class="l">3 repeats per event</div></div>
+      <div class="stat"><div class="n">82.2%</div><div class="l">top-3 risk hit rate (95% CI 78.5–85.9)</div></div>
+    </div>
+    <div class="foot">
+      <div class="repo">github.com/yepinggu66/crisis-rehearsal</div>
+      <div class="badge">AGPL-3.0 · runs on your infrastructure</div>
+    </div>
+  </div>
+</body>
+</html>

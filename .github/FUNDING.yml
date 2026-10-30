@@ -1,0 +1,27 @@
+# Funding for Crisis Rehearsal
+#
+# Status as of 2026-10-31: NO funding channel is active. This file is a commented
+# template so the repo has a documented place for it, without pretending a sponsor
+# program exists.
+#
+# How this project is funded today
+# ---------------------------------
+# The engine is AGPL-3.0 and free to self-host. Commercial work is limited to
+# rehearsal reports and workshops (see README "License & commercial boundary").
+# There is no VC funding and no paid support tier yet.
+#
+# If you want to enable GitHub Sponsors later, uncomment ONE block below and make
+# sure the account is actually enrolled first (otherwise the Sponsor button 404s):
+#
+# github: [yepinggu66]
+#
+# custom: ["https://pingguye.cn/support"]
+#
+# ko_fi: <account>
+# open_collective: <slug>
+# tidelift: <platform-name>/<package-name>
+#
+# Rules we keep if funding is added:
+#   - no sponsor gets a say over published numbers, judge protocol, or failure notes;
+#   - the AGPL-3.0 engine stays complete and open (no open-core crippling);
+#   - sponsorship is disclosed in the README, not hidden.

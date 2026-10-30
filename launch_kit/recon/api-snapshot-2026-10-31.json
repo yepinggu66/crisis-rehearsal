@@ -1,0 +1,1158 @@
+{
+    "fetched_at_utc":  "2026-10-30T17:51:17Z",
+    "fetched_at_local":  "2026-10-31T01:51:17+08:00",
+    "method":  "GitHub REST API via gh api (authenticated as yepinggu66); jq-equivalent field selection",
+    "subject_repo":  {
+                         "full_name":  "yepinggu66/crisis-rehearsal",
+                         "stars":  1,
+                         "forks":  0,
+                         "watchers":  0,
+                         "open_issues":  3,
+                         "created_at":  "2026-10-25T17:22:56Z",
+                         "pushed_at":  "2026-10-27T15:44:37Z",
+                         "description":  "Crisis rehearsal engine: swarm simulation + backtest on 30 public corporate crises (AGPL-3.0)",
+                         "homepage":  "https://youtu.be/pj7PKonS2Ns",
+                         "license":  "AGPL-3.0",
+                         "topics":  [
+                                        "agent-based-modeling",
+                                        "ai-agents",
+                                        "crisis-management",
+                                        "crisis-simulation",
+                                        "llm",
+                                        "llm-evaluation",
+                                        "multi-agent-simulation",
+                                        "public-relations",
+                                        "reproducibility",
+                                        "swarm-intelligence"
+                                    ],
+                         "default_branch":  "main"
+                     },
+    "subject_traffic":  {
+                            "views_14d":  40,
+                            "unique_views_14d":  7,
+                            "clones_14d":  114,
+                            "unique_clones_14d":  55,
+                            "referrers":  {
+                                              "value":  [
+                                                            {
+                                                                "referrer":  "github.com",
+                                                                "count":  8,
+                                                                "uniques":  1
+                                                            },
+                                                            {
+                                                                "referrer":  "pingguye.cn",
+                                                                "count":  3,
+                                                                "uniques":  2
+                                                            },
+                                                            {
+                                                                "referrer":  "removing-exemption-touched-date.trycloudflare.com",
+                                                                "count":  1,
+                                                                "uniques":  1
+                                                            },
+                                                            {
+                                                                "referrer":  "t.co",
+                                                                "count":  1,
+                                                                "uniques":  1
+                                                            }
+                                                        ],
+                                              "Count":  4
+                                          }
+                        },
+    "subject_issues":  [
+                           {
+                               "number":  3,
+                               "title":  "good first issue: add one non-Chinese-market event with a sourced T-72h seed",
+                               "state":  "open",
+                               "created_at":  "2026-10-27T16:34:13Z",
+                               "user":  "yepinggu66",
+                               "comments":  0
+                           },
+                           {
+                               "number":  2,
+                               "title":  "Roadmap: human-calibrate the judge (README currently says \"not human-calibrated\")",
+                               "state":  "open",
+                               "created_at":  "2026-10-27T16:30:05Z",
+                               "user":  "yepinggu66",
+                               "comments":  0
+                           },
+                           {
+                               "number":  1,
+                               "title":  "Methodology: re-run the agent-interview step (v0.1 reports logged 0/19 interviews)",
+                               "state":  "open",
+                               "created_at":  "2026-10-27T16:29:38Z",
+                               "user":  "yepinggu66",
+                               "comments":  0
+                           }
+                       ],
+    "subject_releases":  [
+                             {
+                                 "tag":  "v0.2.0",
+                                 "name":  "v0.2.0 — replication pack: 82.2% (95% CI 78.5–85.9), 17% score-identical, STA 58",
+                                 "published_at":  "2026-10-26T02:02:50Z",
+                                 "assets":  [
+
+                                            ]
+                             },
+                             {
+                                 "tag":  "v0.1.0",
+                                 "name":  "Crisis Rehearsal v0.1.0 — 30-event benchmark (82.8% top-3)",
+                                 "published_at":  "2026-10-25T17:25:54Z",
+                                 "assets":  [
+                                                "backtest_chart.png",
+                                                "benchmark_onepager.md",
+                                                "scorecard_30_events_zh.docx",
+                                                "subtitles_en.srt",
+                                                "video_final.mp4"
+                                            ]
+                             }
+                         ],
+    "comparables":  [
+                        {
+                            "full_name":  "666ghj/MiroFish",
+                            "stars":  82854,
+                            "forks":  12532,
+                            "watchers":  478,
+                            "open_issues":  206,
+                            "created_at":  "2025-11-26T04:23:02Z",
+                            "pushed_at":  "2026-10-16T03:32:19Z",
+                            "license":  "AGPL-3.0",
+                            "topics":  [
+                                           "agent-memory",
+                                           "financial-forecasting",
+                                           "future-prediction",
+                                           "knowledge-graph",
+                                           "llms",
+                                           "multi-agent-simulation",
+                                           "public-opinion-analysis",
+                                           "python3",
+                                           "social-prediction",
+                                           "swarm-intelligence"
+                                       ],
+                            "description":  "A Simple and Universal Swarm Intelligence Engine, Predicting Anything. 简洁通用的群体智能引擎，预测万物"
+                        },
+                        {
+                            "full_name":  "666ghj/BettaFish",
+                            "stars":  42546,
+                            "forks":  7608,
+                            "watchers":  230,
+                            "open_issues":  6,
+                            "created_at":  "2024-07-01T13:11:38Z",
+                            "pushed_at":  "2026-10-16T03:33:52Z",
+                            "license":  "GPL-2.0",
+                            "topics":  [
+                                           "agent-framework",
+                                           "data-analysis",
+                                           "deep-research",
+                                           "deep-search",
+                                           "llms",
+                                           "multi-agent-system",
+                                           "nlp",
+                                           "public-opinion-analysis",
+                                           "python3",
+                                           "sentiment-analysis"
+                                       ],
+                            "description":  "微舆：人人可用的多Agent舆情分析助手，打破信息茧房，还原舆情原貌，预测未来走向，辅助决策！从0实现，不依赖任何框架。"
+                        },
+                        {
+                            "full_name":  "camel-ai/oasis",
+                            "stars":  5366,
+                            "forks":  655,
+                            "watchers":  35,
+                            "open_issues":  59,
+                            "created_at":  "2024-11-13T05:20:49Z",
+                            "pushed_at":  "2026-10-27T10:08:27Z",
+                            "license":  "Apache-2.0",
+                            "topics":  [
+                                           "agent-based-framework",
+                                           "agent-based-simulation",
+                                           "ai-societies",
+                                           "deep-learning",
+                                           "large-language-models",
+                                           "large-scale",
+                                           "llm-agents",
+                                           "multi-agent-systems",
+                                           "natural-language-processing"
+                                       ],
+                            "description":  "🏝️ OASIS: Open Agent Social Interaction Simulations with One Million Agents. "
+                        },
+                        {
+                            "full_name":  "camel-ai/camel",
+                            "stars":  17997,
+                            "forks":  2130,
+                            "watchers":  125,
+                            "open_issues":  558,
+                            "created_at":  "2023-03-17T21:41:54Z",
+                            "pushed_at":  "2026-10-27T10:08:13Z",
+                            "license":  "Apache-2.0",
+                            "topics":  [
+                                           "agent",
+                                           "ai-societies",
+                                           "artificial-intelligence",
+                                           "communicative-ai",
+                                           "cooperative-ai",
+                                           "deep-learning",
+                                           "large-language-models",
+                                           "multi-agent-systems",
+                                           "natural-language-processing"
+                                       ],
+                            "description":  "🐫 CAMEL: The first and the best multi-agent framework. Finding the Scaling Law of Agents. https://www.camel-ai.org"
+                        },
+                        {
+                            "full_name":  "joonspk-research/generative_agents",
+                            "stars":  22313,
+                            "forks":  3128,
+                            "watchers":  170,
+                            "open_issues":  146,
+                            "created_at":  "2023-07-23T08:26:49Z",
+                            "pushed_at":  "2024-08-05T21:38:56Z",
+                            "license":  "Apache-2.0",
+                            "topics":  [
+
+                                       ],
+                            "description":  "Generative Agents: Interactive Simulacra of Human Behavior"
+                        },
+                        {
+                            "full_name":  "google-deepmind/concordia",
+                            "stars":  1843,
+                            "forks":  397,
+                            "watchers":  26,
+                            "open_issues":  72,
+                            "created_at":  "2023-11-21T13:34:11Z",
+                            "pushed_at":  "2026-10-30T13:51:47Z",
+                            "license":  "Apache-2.0",
+                            "topics":  [
+                                           "agent-based-simulation",
+                                           "generative-agents",
+                                           "multi-agent",
+                                           "social-simulation"
+                                       ],
+                            "description":  "A library for generative social simulation"
+                        },
+                        {
+                            "full_name":  "mesa/mesa",
+                            "stars":  3928,
+                            "forks":  1351,
+                            "watchers":  93,
+                            "open_issues":  136,
+                            "created_at":  "2014-09-19T21:16:30Z",
+                            "pushed_at":  "2026-10-29T22:38:34Z",
+                            "license":  "Apache-2.0",
+                            "topics":  [
+                                           "agent-based-modeling",
+                                           "agent-based-simulation",
+                                           "complex-systems",
+                                           "complexity-analysis",
+                                           "gis",
+                                           "mesa",
+                                           "modeling-agents",
+                                           "simulation",
+                                           "simulation-environment",
+                                           "simulation-framework",
+                                           "spatial-models"
+                                       ],
+                            "description":  "Mesa is an open-source Python library for agent-based modeling, ideal for simulating complex systems and exploring emergent behaviors."
+                        },
+                        {
+                            "full_name":  "chrxh/alien",
+                            "stars":  5561,
+                            "forks":  192,
+                            "watchers":  50,
+                            "open_issues":  41,
+                            "created_at":  "2020-10-19T15:59:01Z",
+                            "pushed_at":  "2026-10-30T14:57:22Z",
+                            "license":  "BSD-3-Clause",
+                            "topics":  [
+                                           "agent-based-simulation",
+                                           "artificial-life",
+                                           "cuda",
+                                           "open-ended-evolution",
+                                           "physics-engine"
+                                       ],
+                            "description":  "ALIEN is a CUDA-powered artificial life simulation program."
+                        },
+                        {
+                            "full_name":  "mrwadams/attackgen",
+                            "stars":  1258,
+                            "forks":  170,
+                            "watchers":  23,
+                            "open_issues":  10,
+                            "created_at":  "2023-08-08T10:38:13Z",
+                            "pushed_at":  "2026-10-24T10:27:04Z",
+                            "license":  "GPL-3.0",
+                            "topics":  [
+                                           "ai-security",
+                                           "cybersecurity",
+                                           "generative-ai",
+                                           "incident-response",
+                                           "llm",
+                                           "mitre-atlas",
+                                           "mitre-attack",
+                                           "purple-team",
+                                           "security-tools",
+                                           "streamlit",
+                                           "tabletop-exercise",
+                                           "threat-intelligence"
+                                       ],
+                            "description":  "AttackGen is a cybersecurity incident response testing tool that leverages the power of large language models and the comprehensive MITRE ATT\u0026CK framework. The tool generates tailored incident response scenarios based on user-selected threat actor groups and your organisation\u0027s details."
+                        },
+                        {
+                            "full_name":  "tsinghua-fib-lab/LLM-Agent-Based-Modeling-and-Simulation",
+                            "stars":  305,
+                            "forks":  35,
+                            "watchers":  2,
+                            "open_issues":  4,
+                            "created_at":  "2024-07-30T20:15:29Z",
+                            "pushed_at":  "2025-07-15T02:45:29Z",
+                            "license":  "MIT",
+                            "topics":  [
+
+                                       ],
+                            "description":  null
+                        },
+                        {
+                            "full_name":  "bagusardin25/TeamDynamics",
+                            "stars":  11,
+                            "forks":  2,
+                            "watchers":  0,
+                            "open_issues":  1,
+                            "created_at":  "2026-04-06T05:36:22Z",
+                            "pushed_at":  "2026-07-21T21:45:38Z",
+                            "license":  null,
+                            "topics":  [
+                                           "ai-agent",
+                                           "crisis-simulation",
+                                           "decision-making",
+                                           "llm-generative-ai",
+                                           "multi-agent",
+                                           "nextjs",
+                                           "organization",
+                                           "postgre",
+                                           "team-simulation",
+                                           "typescript",
+                                           "websocket"
+                                       ],
+                            "description":  "Multi-agent AI simulation platform for modeling team behavior, crisis response, and collaborative decision-making."
+                        },
+                        {
+                            "full_name":  "ColinM-sys/StraitOfConsequences",
+                            "stars":  4,
+                            "forks":  2,
+                            "watchers":  0,
+                            "open_issues":  0,
+                            "created_at":  "2026-04-25T17:40:12Z",
+                            "pushed_at":  "2026-05-13T19:52:02Z",
+                            "license":  null,
+                            "topics":  [
+                                           "ai",
+                                           "crisis-simulation",
+                                           "hackathon",
+                                           "llm",
+                                           "local-llm",
+                                           "military-simulation",
+                                           "ollama",
+                                           "scsp",
+                                           "simulation",
+                                           "strait-of-hormuz",
+                                           "wargame",
+                                           "wargaming"
+                                       ],
+                            "description":  "AI-powered wargame simulating crisis escalation in the Strait of Hormuz. Built for SCSP Hackathon 2026 — Wargaming Track. Local LLM inference, RAG intel chat, live satellite imagery, VLM analysis. No cloud, no API keys."
+                        },
+                        {
+                            "full_name":  "IcebergAI/IcebergTTX",
+                            "stars":  3,
+                            "forks":  0,
+                            "watchers":  0,
+                            "open_issues":  44,
+                            "created_at":  "2026-05-11T23:58:37Z",
+                            "pushed_at":  "2026-10-30T00:45:48Z",
+                            "license":  "Apache-2.0",
+                            "topics":  [
+                                           "crisis-simulation",
+                                           "cybersecurity",
+                                           "fastapi",
+                                           "incident-response",
+                                           "python",
+                                           "tabletop-exercise",
+                                           "ttx",
+                                           "websockets"
+                                       ],
+                            "description":  "Tabletop exercise (TTX) platform for facilitated cyber incident and business resilience scenarios — FastAPI, WebSockets, and LLM-assisted assessment."
+                        }
+                    ],
+    "topic_repo_counts":  {
+                              "crisis-simulation":  12,
+                              "crisis-management":  146,
+                              "tabletop-exercise":  36,
+                              "agent-based-simulation":  708,
+                              "agent-based-modeling":  1558,
+                              "multi-agent-simulation":  151,
+                              "social-simulation":  170,
+                              "generative-agents":  131,
+                              "public-opinion-analysis":  17,
+                              "swarm-intelligence":  850,
+                              "llm-evaluation":  8875,
+                              "llm-agents":  8182,
+                              "risk-management":  5264,
+                              "emergency-management":  207,
+                              "disaster-response":  603,
+                              "reputation-management":  99,
+                              "public-relations":  64,
+                              "wargaming":  120,
+                              "simulation":  30638,
+                              "incident-response":  7520
+                          },
+    "niche_top_repos":  {
+                            "crisis-simulation":  [
+                                                      {
+                                                          "full_name":  "bagusardin25/TeamDynamics",
+                                                          "stars":  11,
+                                                          "forks":  2,
+                                                          "created_at":  "2026-04-06T05:36:22Z",
+                                                          "topics":  [
+                                                                         "ai-agent",
+                                                                         "crisis-simulation",
+                                                                         "decision-making",
+                                                                         "llm-generative-ai",
+                                                                         "multi-agent",
+                                                                         "nextjs",
+                                                                         "organization",
+                                                                         "postgre",
+                                                                         "team-simulation",
+                                                                         "typescript",
+                                                                         "websocket"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "ColinM-sys/StraitOfConsequences",
+                                                          "stars":  4,
+                                                          "forks":  2,
+                                                          "created_at":  "2026-04-25T17:40:12Z",
+                                                          "topics":  [
+                                                                         "ai",
+                                                                         "crisis-simulation",
+                                                                         "hackathon",
+                                                                         "llm",
+                                                                         "local-llm",
+                                                                         "military-simulation",
+                                                                         "ollama",
+                                                                         "scsp",
+                                                                         "simulation",
+                                                                         "strait-of-hormuz",
+                                                                         "wargame",
+                                                                         "wargaming"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "IcebergAI/IcebergTTX",
+                                                          "stars":  3,
+                                                          "forks":  0,
+                                                          "created_at":  "2026-05-11T23:58:37Z",
+                                                          "topics":  [
+                                                                         "crisis-simulation",
+                                                                         "cybersecurity",
+                                                                         "fastapi",
+                                                                         "incident-response",
+                                                                         "python",
+                                                                         "tabletop-exercise",
+                                                                         "ttx",
+                                                                         "websockets"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "yepinggu66/crisis-rehearsal",
+                                                          "stars":  1,
+                                                          "forks":  0,
+                                                          "created_at":  "2026-10-25T17:22:56Z",
+                                                          "topics":  [
+                                                                         "agent-based-modeling",
+                                                                         "ai-agents",
+                                                                         "crisis-management",
+                                                                         "crisis-simulation",
+                                                                         "llm",
+                                                                         "llm-evaluation",
+                                                                         "multi-agent-simulation",
+                                                                         "public-relations",
+                                                                         "reproducibility",
+                                                                         "swarm-intelligence"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "RafayKhattak/Crisis-Simulator-GDP",
+                                                          "stars":  0,
+                                                          "forks":  0,
+                                                          "created_at":  "2026-09-06T14:21:58Z",
+                                                          "topics":  [
+                                                                         "ai",
+                                                                         "crisis-simulation",
+                                                                         "data-breach",
+                                                                         "data-protection",
+                                                                         "dpo"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "oflavioc/aurora-cyber-range",
+                                                          "stars":  0,
+                                                          "forks":  0,
+                                                          "created_at":  "2026-08-13T05:13:21Z",
+                                                          "topics":  [
+                                                                         "blue-team",
+                                                                         "crisis-simulation",
+                                                                         "cyber-range",
+                                                                         "event-sourcing",
+                                                                         "fastapi",
+                                                                         "incident-response",
+                                                                         "python",
+                                                                         "security-training",
+                                                                         "tabletop-exercise"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "aliyanz85/crisis-sim",
+                                                          "stars":  0,
+                                                          "forks":  0,
+                                                          "created_at":  "2026-01-27T16:28:59Z",
+                                                          "topics":  [
+                                                                         "agent-based-modeling",
+                                                                         "ai-planning",
+                                                                         "artificial-intelligence",
+                                                                         "crisis-simulation",
+                                                                         "disaster-management",
+                                                                         "emergency-response",
+                                                                         "llm-reasoning",
+                                                                         "mesa-abm",
+                                                                         "multi-agent-systems",
+                                                                         "optimization",
+                                                                         "plan-execute",
+                                                                         "python",
+                                                                         "react-reasoning",
+                                                                         "reflexion",
+                                                                         "simulation"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "sripadsirik/last-city",
+                                                          "stars":  0,
+                                                          "forks":  0,
+                                                          "created_at":  "2026-09-01T04:08:53Z",
+                                                          "topics":  [
+                                                                         "crisis-simulation",
+                                                                         "human-in-the-loop",
+                                                                         "threejs",
+                                                                         "typescript",
+                                                                         "webmcp"
+                                                                     ]
+                                                      }
+                                                  ],
+                            "tabletop-exercise":  [
+                                                      {
+                                                          "full_name":  "mrwadams/attackgen",
+                                                          "stars":  1258,
+                                                          "forks":  170,
+                                                          "created_at":  "2023-08-08T10:38:13Z",
+                                                          "topics":  [
+                                                                         "ai-security",
+                                                                         "cybersecurity",
+                                                                         "generative-ai",
+                                                                         "incident-response",
+                                                                         "llm",
+                                                                         "mitre-atlas",
+                                                                         "mitre-attack",
+                                                                         "purple-team",
+                                                                         "security-tools",
+                                                                         "streamlit",
+                                                                         "tabletop-exercise",
+                                                                         "threat-intelligence"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "capetron/incident-response-plan-template",
+                                                          "stars":  5,
+                                                          "forks":  0,
+                                                          "created_at":  "2026-03-02T14:16:55Z",
+                                                          "topics":  [
+                                                                         "compliance",
+                                                                         "cybersecurity",
+                                                                         "data-breach",
+                                                                         "dfir",
+                                                                         "incident-response",
+                                                                         "ir-plan",
+                                                                         "nist-800-61",
+                                                                         "phishing",
+                                                                         "playbook",
+                                                                         "ransomware",
+                                                                         "security",
+                                                                         "tabletop-exercise"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "BRVC-ORG/zerochain",
+                                                          "stars":  3,
+                                                          "forks":  0,
+                                                          "created_at":  "2025-07-25T02:37:09Z",
+                                                          "topics":  [
+                                                                         "ethical-hacking",
+                                                                         "tabletop",
+                                                                         "tabletop-exercise",
+                                                                         "tabletop-game",
+                                                                         "tabletop-games",
+                                                                         "tabletop-simulator"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "IcebergAI/IcebergTTX",
+                                                          "stars":  3,
+                                                          "forks":  0,
+                                                          "created_at":  "2026-05-11T23:58:37Z",
+                                                          "topics":  [
+                                                                         "crisis-simulation",
+                                                                         "cybersecurity",
+                                                                         "fastapi",
+                                                                         "incident-response",
+                                                                         "python",
+                                                                         "tabletop-exercise",
+                                                                         "ttx",
+                                                                         "websockets"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "Ap6pack/ai_tabletop_world_builder",
+                                                          "stars":  2,
+                                                          "forks":  2,
+                                                          "created_at":  "2025-10-31T15:05:49Z",
+                                                          "topics":  [
+                                                                         "ai",
+                                                                         "blue-team",
+                                                                         "cybersecurity",
+                                                                         "fastapi",
+                                                                         "incident-response",
+                                                                         "llm",
+                                                                         "mitre-attack",
+                                                                         "postgresql",
+                                                                         "python",
+                                                                         "red-team",
+                                                                         "security-training",
+                                                                         "streamlit",
+                                                                         "tabletop-exercise",
+                                                                         "threat-detection",
+                                                                         "wargaming"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "SecurityNomad/ir-tabletop-library",
+                                                          "stars":  2,
+                                                          "forks":  1,
+                                                          "created_at":  "2026-07-02T17:01:39Z",
+                                                          "topics":  [
+                                                                         "breach-notification",
+                                                                         "ciso",
+                                                                         "cybersecurity",
+                                                                         "grc",
+                                                                         "incident-response",
+                                                                         "security-playbooks",
+                                                                         "tabletop-exercise"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "reninjk/soc-training-lab",
+                                                          "stars":  1,
+                                                          "forks":  0,
+                                                          "created_at":  "2026-05-26T12:30:28Z",
+                                                          "topics":  [
+                                                                         "analyst-training",
+                                                                         "blue-team",
+                                                                         "certifications",
+                                                                         "cybersecurity",
+                                                                         "incident-response",
+                                                                         "security-training",
+                                                                         "soc",
+                                                                         "tabletop",
+                                                                         "tabletop-exercise"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "joris-decombe/rolls-and-responders-app",
+                                                          "stars":  1,
+                                                          "forks":  0,
+                                                          "created_at":  "2025-12-23T04:16:12Z",
+                                                          "topics":  [
+                                                                         "cybersecurity",
+                                                                         "cybersecurity-awareness",
+                                                                         "cybersecurity-education",
+                                                                         "incident-response",
+                                                                         "ncsc",
+                                                                         "rolls-and-responders",
+                                                                         "security-training",
+                                                                         "tabletop-exercise"
+                                                                     ]
+                                                      }
+                                                  ],
+                            "social-simulation":  [
+                                                      {
+                                                          "full_name":  "google-deepmind/concordia",
+                                                          "stars":  1843,
+                                                          "forks":  397,
+                                                          "created_at":  "2023-11-21T13:34:11Z",
+                                                          "topics":  [
+                                                                         "agent-based-simulation",
+                                                                         "generative-agents",
+                                                                         "multi-agent",
+                                                                         "social-simulation"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "tsinghua-fib-lab/AgentSociety",
+                                                          "stars":  1376,
+                                                          "forks":  220,
+                                                          "created_at":  "2025-02-06T05:09:18Z",
+                                                          "topics":  [
+                                                                         "agent",
+                                                                         "agent-based-modeling",
+                                                                         "agentsociety2",
+                                                                         "ai-assistants",
+                                                                         "ai-for-science",
+                                                                         "ai-social-scientist",
+                                                                         "harness-engineering",
+                                                                         "multi-agents",
+                                                                         "simulation",
+                                                                         "social-simulation"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "XiaoLuoLYG/GOD",
+                                                          "stars":  1254,
+                                                          "forks":  136,
+                                                          "created_at":  "2026-05-11T13:35:48Z",
+                                                          "topics":  [
+                                                                         "agent",
+                                                                         "agent-control-room",
+                                                                         "agent-society",
+                                                                         "ai-agents",
+                                                                         "generative-agents",
+                                                                         "human-in-the-loop",
+                                                                         "llm-agents",
+                                                                         "multi-agent-simulation",
+                                                                         "openai-compatible",
+                                                                         "pixel-replay",
+                                                                         "python",
+                                                                         "react",
+                                                                         "social-simulation"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "AIScientists-Dev/WorldSeed",
+                                                          "stars":  822,
+                                                          "forks":  59,
+                                                          "created_at":  "2026-04-15T03:47:21Z",
+                                                          "topics":  [
+                                                                         "agent-based-simulation",
+                                                                         "agentic-ai",
+                                                                         "agents",
+                                                                         "ai",
+                                                                         "ai-agents",
+                                                                         "autonomous-agents",
+                                                                         "emergent-behavior",
+                                                                         "game-ai",
+                                                                         "generative-agents",
+                                                                         "generative-ai",
+                                                                         "llm",
+                                                                         "llm-agents",
+                                                                         "multi-agent",
+                                                                         "multi-agent-systems",
+                                                                         "open-source",
+                                                                         "python",
+                                                                         "simulation",
+                                                                         "social-simulation",
+                                                                         "typescript",
+                                                                         "world-models"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "ZJU-LLMs/Agent-Kernel",
+                                                          "stars":  561,
+                                                          "forks":  52,
+                                                          "created_at":  "2025-11-30T03:08:20Z",
+                                                          "topics":  [
+                                                                         "artificial-intelligence",
+                                                                         "large-language-models",
+                                                                         "multi-agent-systems",
+                                                                         "social-simulation"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "ZJU-LLMs/OpenStory",
+                                                          "stars":  437,
+                                                          "forks":  45,
+                                                          "created_at":  "2026-04-01T02:43:27Z",
+                                                          "topics":  [
+                                                                         "artificial-intelligence",
+                                                                         "dsh-plugin",
+                                                                         "large-language-models",
+                                                                         "multi-agent-systems",
+                                                                         "social-simulation"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "FreedomIntelligence/TwinMarket",
+                                                          "stars":  227,
+                                                          "forks":  42,
+                                                          "created_at":  "2025-09-30T23:22:21Z",
+                                                          "topics":  [
+                                                                         "agent",
+                                                                         "computational-social-science",
+                                                                         "fintech",
+                                                                         "social-simulation"
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "full_name":  "tt-a1i/MiroFish-local",
+                                                          "stars":  161,
+                                                          "forks":  52,
+                                                          "created_at":  "2026-01-06T02:19:49Z",
+                                                          "topics":  [
+                                                                         "digital-twin",
+                                                                         "graphiti",
+                                                                         "llm",
+                                                                         "multi-agent",
+                                                                         "neo4j",
+                                                                         "prediction",
+                                                                         "simulation",
+                                                                         "social-simulation",
+                                                                         "swarm-intelligence"
+                                                                     ]
+                                                      }
+                                                  ],
+                            "multi-agent-simulation":  [
+                                                           {
+                                                               "full_name":  "666ghj/MiroFish",
+                                                               "stars":  82854,
+                                                               "forks":  12532,
+                                                               "created_at":  "2025-11-26T04:23:02Z",
+                                                               "topics":  [
+                                                                              "agent-memory",
+                                                                              "financial-forecasting",
+                                                                              "future-prediction",
+                                                                              "knowledge-graph",
+                                                                              "llms",
+                                                                              "multi-agent-simulation",
+                                                                              "public-opinion-analysis",
+                                                                              "python3",
+                                                                              "social-prediction",
+                                                                              "swarm-intelligence"
+                                                                          ]
+                                                           },
+                                                           {
+                                                               "full_name":  "satellitecomponent/Neurite",
+                                                               "stars":  2160,
+                                                               "forks":  168,
+                                                               "created_at":  "2023-04-05T19:43:37Z",
+                                                               "topics":  [
+                                                                              "ai-agents",
+                                                                              "ai-agents-framework",
+                                                                              "ai-graphs",
+                                                                              "ai-os",
+                                                                              "fractals",
+                                                                              "graph-of-thoughts",
+                                                                              "knowledge-graph",
+                                                                              "llm-os",
+                                                                              "mandelbrot",
+                                                                              "mindmap",
+                                                                              "multi-agent-simulation",
+                                                                              "note-taking",
+                                                                              "ollama",
+                                                                              "ollama-gui",
+                                                                              "rag",
+                                                                              "second-brain",
+                                                                              "swarm-intelligence",
+                                                                              "tree-of-thoughts",
+                                                                              "web-browsing",
+                                                                              "web-desktop"
+                                                                          ]
+                                                           },
+                                                           {
+                                                               "full_name":  "YGYOOO/WorldX",
+                                                               "stars":  1585,
+                                                               "forks":  259,
+                                                               "created_at":  "2026-04-18T06:24:32Z",
+                                                               "topics":  [
+                                                                              "agent",
+                                                                              "ai",
+                                                                              "ai-agents",
+                                                                              "ai-characters",
+                                                                              "ai-simulation",
+                                                                              "ai-world",
+                                                                              "emergent-behavior",
+                                                                              "game-ai",
+                                                                              "generative-agents",
+                                                                              "generative-ai",
+                                                                              "llm",
+                                                                              "llm-agents",
+                                                                              "multi-agent-simulation",
+                                                                              "open-source",
+                                                                              "phaser",
+                                                                              "pixel-art",
+                                                                              "typescript"
+                                                                          ]
+                                                           },
+                                                           {
+                                                               "full_name":  "Farama-Foundation/ChatArena",
+                                                               "stars":  1568,
+                                                               "forks":  152,
+                                                               "created_at":  "2023-03-06T21:47:05Z",
+                                                               "topics":  [
+                                                                              "ai",
+                                                                              "artificial-intelligence",
+                                                                              "chatgpt",
+                                                                              "gpt-4",
+                                                                              "large-language-models",
+                                                                              "multi-agent",
+                                                                              "multi-agent-reinforcement-learning",
+                                                                              "multi-agent-simulation",
+                                                                              "natural-language-processing",
+                                                                              "python"
+                                                                          ]
+                                                           },
+                                                           {
+                                                               "full_name":  "XiaoLuoLYG/GOD",
+                                                               "stars":  1254,
+                                                               "forks":  136,
+                                                               "created_at":  "2026-05-11T13:35:48Z",
+                                                               "topics":  [
+                                                                              "agent",
+                                                                              "agent-control-room",
+                                                                              "agent-society",
+                                                                              "ai-agents",
+                                                                              "generative-agents",
+                                                                              "human-in-the-loop",
+                                                                              "llm-agents",
+                                                                              "multi-agent-simulation",
+                                                                              "openai-compatible",
+                                                                              "pixel-replay",
+                                                                              "python",
+                                                                              "react",
+                                                                              "social-simulation"
+                                                                          ]
+                                                           },
+                                                           {
+                                                               "full_name":  "proroklab/VectorizedMultiAgentSimulator",
+                                                               "stars":  627,
+                                                               "forks":  115,
+                                                               "created_at":  "2022-05-12T15:03:34Z",
+                                                               "topics":  [
+                                                                              "gym",
+                                                                              "gym-environment",
+                                                                              "marl",
+                                                                              "multi-agent",
+                                                                              "multi-agent-learning",
+                                                                              "multi-agent-reinforcement-learning",
+                                                                              "multi-agent-simulation",
+                                                                              "multi-agent-systems",
+                                                                              "multi-robot",
+                                                                              "multi-robot-framework",
+                                                                              "multi-robot-sim",
+                                                                              "multi-robot-simulator",
+                                                                              "multi-robot-systems",
+                                                                              "pytorch",
+                                                                              "rllib",
+                                                                              "robotics",
+                                                                              "simulation",
+                                                                              "simulator",
+                                                                              "vectorization",
+                                                                              "vectorized"
+                                                                          ]
+                                                           },
+                                                           {
+                                                               "full_name":  "x-glacier/GenerativeAgentsCN",
+                                                               "stars":  543,
+                                                               "forks":  93,
+                                                               "created_at":  "2024-10-12T05:02:47Z",
+                                                               "topics":  [
+                                                                              "generative-agents",
+                                                                              "generative-ai",
+                                                                              "multi-agent",
+                                                                              "multi-agent-simulation",
+                                                                              "multi-agent-systems"
+                                                                          ]
+                                                           },
+                                                           {
+                                                               "full_name":  "ServiceNow/TapeAgents",
+                                                               "stars":  320,
+                                                               "forks":  44,
+                                                               "created_at":  "2024-09-13T13:03:23Z",
+                                                               "topics":  [
+                                                                              "agentic",
+                                                                              "agents",
+                                                                              "ai-agents",
+                                                                              "finetuning",
+                                                                              "llm-agent",
+                                                                              "multi-agent",
+                                                                              "multi-agent-simulation",
+                                                                              "prompt-tuning"
+                                                                          ]
+                                                           }
+                                                       ]
+                        },
+    "awesome_lists":  [
+                          {
+                              "full_name":  "e2b-dev/awesome-ai-agents",
+                              "stars":  30716,
+                              "forks":  3731,
+                              "license":  "NOASSERTION",
+                              "description":  "A list of AI autonomous agents"
+                          },
+                          {
+                              "full_name":  "steven2358/awesome-generative-ai",
+                              "stars":  12789,
+                              "forks":  2593,
+                              "license":  "CC0-1.0",
+                              "description":  "A curated list of modern Generative Artificial Intelligence projects and services"
+                          },
+                          {
+                              "full_name":  "jim-schwoebel/awesome_ai_agents",
+                              "stars":  2022,
+                              "forks":  731,
+                              "license":  "Apache-2.0",
+                              "description":  "🤖 A comprehensive list of 1,500+ resources and tools related to AI agents."
+                          },
+                          {
+                              "full_name":  "dipakkr/awesome-ai-engineering",
+                              "stars":  22495,
+                              "forks":  4850,
+                              "license":  "MIT",
+                              "description":  "🚀 A curated collection of AI engineering resources, roadmaps, tools, and projects covering LLMs, RAG, AI Agents, MCP, fine-tuning, evaluations, and production AI systems."
+                          },
+                          {
+                              "full_name":  "Shubhamsaboo/awesome-llm-apps",
+                              "stars":  143505,
+                              "forks":  21113,
+                              "license":  "Apache-2.0",
+                              "description":  "100+ AI Agents, Agent Skills and RAG Apps - Free and Open Source."
+                          },
+                          {
+                              "full_name":  "Arindam200/awesome-ai-apps",
+                              "stars":  16650,
+                              "forks":  1867,
+                              "license":  "MIT",
+                              "description":  "A collection of projects showcasing RAG, agents, workflows, and other AI use cases"
+                          },
+                          {
+                              "full_name":  "VoltAgent/awesome-ai-agent-papers",
+                              "stars":  1879,
+                              "forks":  196,
+                              "license":  "MIT",
+                              "description":  "A curated collection of AI agent research papers released in 2026, covering agent engineering, memory, evaluation, workflows, and autonomous systems."
+                          },
+                          {
+                              "full_name":  "WenyuChiou/awesome-agentic-ai-zh",
+                              "stars":  8300,
+                              "forks":  1049,
+                              "license":  "MIT",
+                              "description":  "A trilingual (繁中 / English / 简中) learning roadmap for agentic AI: from LLM basics to multi-agent systems, with 240+ curated resources and hands-on examples. 中文 AI agent 學習地圖。"
+                          },
+                          {
+                              "full_name":  "WangRongsheng/awesome-LLM-resources",
+                              "stars":  9055,
+                              "forks":  1036,
+                              "license":  "Apache-2.0",
+                              "description":  "🧑‍🚀 全世界最好的LLM资料总结（多模态生成、Agent、辅助编程、AI审稿、数据处理、模型训练、模型推理、o1 模型、MCP、小语言模型、视觉语言模型） | Summary of the world\u0027s best LLM resources. "
+                          },
+                          {
+                              "full_name":  "AiHubCN/Awesome-Chinese-LLM",
+                              "stars":  22771,
+                              "forks":  2142,
+                              "license":  null,
+                              "description":  "整理开源的中文大语言模型，以规模较小、可私有化部署、训练成本较低的模型为主，包括底座模型，垂直领域微调及应用，数据集与教程等。"
+                          },
+                          {
+                              "full_name":  "benchflow-ai/awesome-evals",
+                              "stars":  1021,
+                              "forks":  139,
+                              "license":  "NOASSERTION",
+                              "description":  "A curated, non-BS library of the best resources for building and evaluating AI agents — papers, blogs, talks, tools, benchmarks. Maintained by BenchFlow."
+                          },
+                          {
+                              "full_name":  "onejune2018/Awesome-LLM-Eval",
+                              "stars":  659,
+                              "forks":  111,
+                              "license":  "MIT",
+                              "description":  "Awesome-LLM-Eval: a curated list of tools, datasets/benchmark, demos, leaderboard, papers, docs and models, mainly for Evaluation on LLMs.  一个由工具、基准/数据、演示、排行榜和大模型等组成的精选列表，主要面向基础大模型评测，旨在探求生成式AI的技术边界."
+                          },
+                          {
+                              "full_name":  "tdi/awesome-private-ai",
+                              "stars":  192,
+                              "forks":  55,
+                              "license":  "CC0-1.0",
+                              "description":  "Curated list of tools, frameworks, and resources for running, building, and deploying AI privately — on-prem, air-gapped, or self-hosted."
+                          },
+                          {
+                              "full_name":  "veeral-patel/awesome-risk-quantification",
+                              "stars":  473,
+                              "forks":  22,
+                              "license":  null,
+                              "description":  "A collection of awesome projects, blog posts, books, and talks on quantifying risk"
+                          },
+                          {
+                              "full_name":  "GRC-Engineer/awesome-security-GRC",
+                              "stars":  1112,
+                              "forks":  227,
+                              "license":  null,
+                              "description":  "Curated list of resources for security Governance, Risk Management, Compliance and Audit professionals and enthusiasts (if they exist)."
+                          },
+                          {
+                              "full_name":  "sboudon/ABM",
+                              "stars":  14,
+                              "forks":  3,
+                              "license":  "GPL-3.0",
+                              "description":  "Awesome list of Agent Based Modeling Resources"
+                          },
+                          {
+                              "full_name":  "Wanying-He/awesome-llm-social-simulation",
+                              "stars":  12,
+                              "forks":  6,
+                              "license":  "MIT",
+                              "description":  "A curated awesome list for LLM-based social simulation research"
+                          },
+                          {
+                              "full_name":  "tamlhp/awesome-sns",
+                              "stars":  13,
+                              "forks":  1,
+                              "license":  "Apache-2.0",
+                              "description":  "Curated papers, datasets, and benchmarks for social network simulation, from classical network models to LLM-based agentic social systems."
+                          },
+                          {
+                              "full_name":  "sotopia-lab/awesome-social-agents",
+                              "stars":  117,
+                              "forks":  29,
+                              "license":  "Apache-2.0",
+                              "description":  "A collection of works that investigate social agents, simulations and their real-world impact in text, embodied, and robotics contexts."
+                          },
+                          {
+                              "full_name":  "totogo/awesome-knowledge-graph",
+                              "stars":  1905,
+                              "forks":  187,
+                              "license":  null,
+                              "description":  "A curated list of Knowledge Graph related learning materials, databases, tools and other resources"
+                          },
+                          {
+                              "full_name":  "husthuke/awesome-knowledge-graph",
+                              "stars":  5176,
+                              "forks":  939,
+                              "license":  null,
+                              "description":  "整理知识图谱相关学习资料"
+                          },
+                          {
+                              "full_name":  "meirwah/awesome-incident-response",
+                              "stars":  9514,
+                              "forks":  1765,
+                              "license":  "Apache-2.0",
+                              "description":  "A curated list of tools for incident response"
+                          },
+                          {
+                              "full_name":  "kyegomez/awesome-multi-agent-papers",
+                              "stars":  1705,
+                              "forks":  167,
+                              "license":  "NOASSERTION",
+                              "description":  "A compilation of the best multi-agent papers"
+                          }
+                      ]
+}

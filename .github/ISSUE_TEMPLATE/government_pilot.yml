@@ -1,0 +1,117 @@
+name: Government / enterprise pilot enquiry
+description: Explore a private, offline evaluation (public-sector or large-enterprise). Do not post confidential information here.
+title: "[pilot] "
+labels: ["government-pilot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your interest. This form starts a **pilot conversation**, not a contract.
+
+        **Read this first — honest status:**
+        - The engine is open source (AGPL-3.0) and can run offline. The public demo (`crh demo`) needs no network and no API key.
+        - We are **not certified or assessed** against 等保 2.0 / ISO 27001 / SOC 2 / GDPR. The repo ships requirement mappings and gap lists, not certificates.
+        - We have **no government or enterprise production references**. Pilot engagements are design-stage.
+        - A pilot uses public historical events only. We do not ask for internal data, personal data, or classified material.
+
+        **Do not post** organization names, internal system details, data samples, or anything confidential in this issue. We will move the conversation to email (`yepinggu@outlook.com`) and sign an NDA/DPA as needed.
+        Security vulnerabilities belong in [SECURITY.md](https://github.com/yepinggu66/crisis-rehearsal/blob/main/SECURITY.md), not here.
+
+  - type: dropdown
+    id: org-type
+    attributes:
+      label: Organization type
+      options:
+        - Government / public agency
+        - State-owned enterprise (央企/国企)
+        - Listed company
+        - PR / IR / risk consultancy
+        - Other enterprise
+        - Academic / research
+    validations:
+      required: true
+
+  - type: input
+    id: sector
+    attributes:
+      label: Sector or domain
+      description: e.g. consumer goods, financial services, energy, public health, emergency management. Do not include the organization name.
+      placeholder: "Financial services"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: Deployment constraint
+      description: Where would an evaluation need to run?
+      options:
+        - Fully offline / air-gapped
+        - Government or private cloud (no data leaves the network)
+        - Internal network with an approved LLM gateway
+        - Not sure yet / need guidance
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: requirements
+    attributes:
+      label: Which of these apply? (check all that are relevant)
+      options:
+        - label: 等保 2.0 / 数据安全法 / 个人信息保护法 review needed
+          required: false
+        - label: 信创 (domestic hardware/OS) adaptation required
+          required: false
+        - label: Integration with existing sentiment-monitoring or emergency-command systems
+          required: false
+        - label: Data classification (分级分类) before any evaluation
+          required: false
+        - label: Procurement / security questionnaire required
+          required: false
+
+  - type: textarea
+    id: scenario
+    attributes:
+      label: What would you want to rehearse?
+      description: Describe the kind of crisis or exercise. Public-event examples are enough; no internal details.
+      placeholder: "Board-level reputational crisis exercise for a listed company, using 3 public historical events from our sector."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: timeline
+    attributes:
+      label: Desired timeline
+      options:
+        - This month
+        - Next quarter
+        - Exploring / no date yet
+    validations:
+      required: true
+
+  - type: input
+    id: public-scenario
+    attributes:
+      label: One public reference event that resembles your scenario (optional)
+      description: A public news event or public report URL. Do not include internal or confidential material.
+      placeholder: "https://... (public source only)"
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        **Next step:** the fastest private channel is email `yepinggu@outlook.com` (see also the "Government / enterprise pilot" contact link on the new-issue page).
+        If you prefer to keep the first exchange public and method-only, submit this issue as-is — we will reply here and move to a private channel before any organization-specific detail is discussed.
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I have not posted confidential, personal, or classified information in this issue.
+          required: true
+        - label: I understand this is a design-stage pilot offer, not a certified product, and that no government/enterprise references exist yet.
+          required: true
+        - label: I understand the fastest private channel is email (yepinggu@outlook.com) and I can continue there if needed.
+          required: true

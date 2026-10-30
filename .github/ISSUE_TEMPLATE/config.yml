@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/yepinggu66/crisis-rehearsal/security/policy
+    about: Do not open a public issue for security problems. Report privately following SECURITY.md.
+  - name: Questions, ideas and show-and-tell
+    url: https://github.com/yepinggu66/crisis-rehearsal/discussions
+    about: For usage questions, methodology discussion, or sharing your own rehearsal pack. No signup required.
+  - name: Government / enterprise pilot
+    url: mailto:yepinggu@outlook.com
+    about: Private, offline evaluation enquiries. Please do not post organization or confidential details in a public issue.
+  - name: Reproduction and evidence notes
+    url: https://github.com/yepinggu66/crisis-rehearsal/blob/main/docs/methodology.md
+    about: How the numbers are produced, how the T-72h clean room works, and what the CI does not cover.

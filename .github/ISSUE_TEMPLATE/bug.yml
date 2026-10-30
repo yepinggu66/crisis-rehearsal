@@ -1,0 +1,101 @@
+name: Bug report
+description: Something in the CLI, the evidence pack, or an HTML dossier is broken or wrong.
+title: "[bug] "
+labels: ["bug", "needs-repro"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Before you open this:** run `crh demo` on a clean clone and check `crh verify`.
+        If `crh verify` reports a mismatch, say so — that is a `data-integrity` issue and gets priority.
+
+        **Security vulnerability?** Do **not** file it here. Follow [SECURITY.md](https://github.com/yepinggu66/crisis-rehearsal/blob/main/SECURITY.md) or use GitHub private vulnerability reporting.
+        This project follows the [Code of Conduct](https://github.com/yepinggu66/crisis-rehearsal/blob/main/CODE_OF_CONDUCT.md).
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: The exact command and the full output. Paste text, not screenshots.
+      placeholder: |
+        $ crh demo
+        ...full output...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect instead?
+      description: If the output differs from README / data/repeat_v02/v02_summary.md, quote the expected number.
+    validations:
+      required: true
+
+  - type: input
+    id: crh-version
+    attributes:
+      label: crh --version
+      description: Output of `crh --version` (or the commit SHA if installed from a clone).
+      placeholder: "crh 0.3.0"
+    validations:
+      required: true
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+      description: Output of `python -V` (the project supports 3.9+).
+      placeholder: "Python 3.12.4"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows 10/11
+        - macOS
+        - Linux
+        - Docker
+        - Other / unknown
+    validations:
+      required: true
+
+  - type: input
+    id: install-method
+    attributes:
+      label: How did you install it?
+      placeholder: "pip install -e . / pip install crisis-rehearsal / docker compose"
+    validations:
+      required: true
+
+  - type: textarea
+    id: verify-output
+    attributes:
+      label: crh verify output
+      description: Paste the full output. If it says FAILED, stop and tell us here — we do not edit the evidence pack to make a test pass.
+      placeholder: |
+        OK    data/events.csv
+        ...
+        OK: <n> files verified against data/evidence.sha256
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else?
+      description: Extra context, CI logs, or a minimal reproduction. Do not paste secrets or client data.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: This is not a security vulnerability (those go through SECURITY.md).
+          required: true
+        - label: I have removed secrets, API keys, and any personal or client data from this report.
+          required: true
