@@ -9,6 +9,11 @@ Crisis Rehearsal rewinds a real reputation crisis to T−72h, gives a swarm-simu
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](pyproject.toml)
 [![Reproduce](https://img.shields.io/badge/reproduce-82.2%25%20in%202%20commands-brightgreen)](data/repeat_v02/ci_summary.md)
 
+> **Architecture Update (2026-11-23):** All upstream external framework patches (`patches/`, `docs/patches.md`) have been removed. Our commercial engine (**Crisis Rehearsal Pro V0.5**, private build) is now **100% in-house built** with zero upstream dependency (explicit 8×8×72 dynamics, walk-forward numeric gate, distribution-only Oracle protocol, and 90-minute boardroom workshop console). This public repository serves as our **verifiable offline evidence workstation** and **public case-study library**:
+> - 📊 [**Saving NVIDIA ($NVDA): Post-Jensen 72h Boardroom Crisis Rehearsal**](case_studies/nvda_post_jensen_boardroom_rehearsal.md)
+> - 📈 [**$BTC 900-Day Walk-Forward Gate & Exchange 72h Bank-Run Rehearsal**](case_studies/btc_exchange_72h_bankrun_rehearsal.md)
+> - 🎬 [**PROMETHEUS & SILICON: Dual-Timeline Tech Thriller & Pre-Production Audit**](case_studies/prometheus_and_silicon_pitch_and_rehearsal.md)
+
 ## 30-second quick start — zero API key, fully offline
 
 ```bash
@@ -100,34 +105,22 @@ data/seeds/{id}.md           # T-72h information packs (frozen; pre-T0 only)
 data/repeat_v02/             # 90 judge records, v0.1 baseline, item merge, generated summaries
 data/failures.md             # the events we lost, with post-mortems
 data/judge_calibration.md    # human calibration: status NOT RUN; template only
-patches/000*.patch           # 5 patches against upstream MiroFish commit 7657031
-scripts/                     # v0.1/v0.2 pipeline + statistics scripts (stdlib for stats)
-crisis_rehearsal/            # v0.3 CLI (crh): verify / stats / report / demo / pack / site
+case_studies/                # full English V0.5 dossiers ($NVDA, $BTC, PROMETHEUS & SILICON)
+scripts/                     # v0.1/v0.2 statistics scripts (stdlib for stats)
+crisis_rehearsal/            # offline evidence CLI (crh): verify / stats / report / demo / pack / site
 docs/                        # architecture, deployment, enterprise/government, reports, methodology
 ```
 
-## Reproduce, two levels
+## Reproduce offline
 
-**A. The numbers (already done by the quick start).** `crh verify`, `crh stats`, `crh demo`. The v0.2 scripts remain runnable with no API key: `python scripts/ci_stats.py --out data/repeat_v02` and `python scripts/sta_stats.py --out data/repeat_v02`.
+Run `crh verify`, `crh stats`, and `crh demo` completely offline with zero API keys. The v0.2 statistics scripts remain runnable with no API key: `python scripts/ci_stats.py --out data/repeat_v02` and `python scripts/sta_stats.py --out data/repeat_v02`.
 
-**B. The whole grid (MiroFish + an LLM key).** Pinned upstream commit, five mechanical patches, then 90 runs (~6 hours, a few dollars of API credit):
-
-```bash
-git clone https://github.com/666ghj/MiroFish && cd MiroFish
-git checkout 7657031ac01184afe2cb220f5ee3545573b5e843
-git apply ../patches/000*.patch            # PowerShell: see docs/patches.md
-npm run setup:all && cp .env.example .env  # then set the four LLM_* vars (docs/patches.md)
-cd .. && pip install -r requirements.txt
-python scripts/repeat_runs.py --runs 3 --rounds 2 --out output_v2
-python scripts/score_repeat.py --out output_v2
-```
-
-Then re-derive STA with `python scripts/cluster_items.py --out output_v2` and `python scripts/sta_stats.py --out output_v2`. Full chain, flags and pinned-commit checks: [docs/patches.md](docs/patches.md).
+*(All legacy upstream fork/patch dependencies have been removed. Live simulations now run on our 100% proprietary **Crisis Rehearsal Pro V0.5** private engine.)*
 
 ## License & commercial boundary
 
-- **Code: AGPL-3.0**, same as upstream MiroFish. Run it, modify it, offer it as a service — but if you modify and serve it over a network, publish your source.
-- **What we keep closed:** industry ontology (persona rules), client corpora, delivery playbooks. **We sell rehearsal reports and workshops, not the software.** Open-core boundary: [docs/enterprise/overview.md](docs/enterprise/overview.md) §6.
+- **Public Evidence Workstation (`crisis-rehearsal`)**: `AGPL-3.0`. Inspect, audit, and reproduce the 30-event historical backtest offline.
+- **Commercial Private Engine (`Crisis Rehearsal Pro V0.5`)**: 100% in-house clean-room codebase with zero upstream dependency — available for enterprise annual licensing, PR agency white-label pilots, and 90-minute executive workshops.
 - **No client data in this repo.** All events are public news; seeds were written from public sources only.
 
 ## Cite
@@ -140,4 +133,4 @@ Open an issue, or email **yepinggu@outlook.com**. We will run a free 30-minute r
 
 ---
 
-*Built on [MiroFish](https://github.com/666ghj/MiroFish) (AGPL-3.0) and [OASIS](https://github.com/camel-ai/oasis) (Apache-2.0). Thanks to both teams. Documentation index: [docs/README.md](docs/README.md).*
+*Documentation index: [docs/README.md](docs/README.md).*

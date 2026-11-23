@@ -102,34 +102,22 @@ data/seeds/{id}.md           # T-72h 情报包（已冻结；只含 T0 前信息
 data/repeat_v02/             # 90 条评分记录、v0.1 基线、条目合并、生成的汇总
 data/failures.md             # 我们失败的案例与复盘
 data/judge_calibration.md    # 人工校准：状态「未运行」，只有模板与流程
-patches/000*.patch           # 针对上游 MiroFish commit 7657031 的 5 个补丁
-scripts/                     # v0.1/v0.2 流水线与统计脚本（统计脚本仅标准库）
-crisis_rehearsal/            # v0.3 CLI（crh）：verify / stats / report / demo / pack / site
+case_studies/                # V0.5 完整英文深度案例（$NVDA、$BTC、PROMETHEUS & SILICON）
+scripts/                     # 统计与复算脚本（纯标准库）
+crisis_rehearsal/            # 离线证据工作站 CLI（crh）：verify / stats / report / demo / pack / site
 docs/                        # 架构、部署、企业/政府文档、样例报告、方法论
 ```
 
-## 复现，两级
+## 离线复现
 
-**A. 复算数字（快速开始已经做了）。** `crh verify`、`crh stats`、`crh demo`。v0.2 脚本仍可无 API key 运行：`python scripts/ci_stats.py --out data/repeat_v02`、`python scripts/sta_stats.py --out data/repeat_v02`。
+直接运行 `crh verify`、`crh stats`、`crh demo` 即可在零 API Key、完全断网环境下复算全部公开数据；v0.2 统计脚本同样可离线运行：`python scripts/ci_stats.py --out data/repeat_v02` 与 `python scripts/sta_stats.py --out data/repeat_v02`。
 
-**B. 重跑整张网格（需要 MiroFish + LLM key）。** 固定上游 commit、5 个机械补丁，然后 90 次运行（约 6 小时、数美元 API 费用）：
-
-```bash
-git clone https://github.com/666ghj/MiroFish && cd MiroFish
-git checkout 7657031ac01184afe2cb220f5ee3545573b5e843
-git apply ../patches/000*.patch            # PowerShell 写法见 docs/patches.md
-npm run setup:all && cp .env.example .env  # 再填 4 个 LLM_* 变量（见 docs/patches.md）
-cd .. && pip install -r requirements.txt
-python scripts/repeat_runs.py --runs 3 --rounds 2 --out output_v2
-python scripts/score_repeat.py --out output_v2
-```
-
-再用 `python scripts/cluster_items.py --out output_v2` 与 `python scripts/sta_stats.py --out output_v2` 重新导出 STA。完整链路、参数、固定 commit 校验：[docs/patches.md](docs/patches.md)。
+> **架构升级声明（2026-11-23）**：本仓库已彻底移除全部外部框架派生补丁（`patches/`、`docs/patches.md`）。最新商业版 **`Crisis Rehearsal Pro V0.5`** 已实现 **100% 自主研发、零上游依赖**（私有商业交付），本公开库仅保留可审计离线证据复现与深度案例研究。
 
 ## 许可与商业边界
 
-- **代码：AGPL-3.0**，与上游 MiroFish 一致。可以运行、修改、作为服务提供；但若修改后通过网络对外提供服务，须公开你的修改源码。
-- **我们保持闭源的部分：** 行业本体（角色规则）、客户语料、交付手册。**我们卖的是预演报告与工作坊，不是软件本身。** 开放核心边界见 [docs/enterprise/overview.md](docs/enterprise/overview.md) 第 6 节。
+- **公开证据工作站（本库）**：`AGPL-3.0`，用于公开审计与 30 事件离线回测复现。
+- **商业私有引擎（`Crisis Rehearsal Pro V0.5`）**：100% 自主研发独立产权，提供企业年度授权、公关机构白标合作与 90 分钟高管演练工作坊。
 - **仓库内没有任何客户数据。** 所有事件都是公开新闻；情报包只依据公开来源编写。
 
 ## 引用
@@ -142,4 +130,4 @@ python scripts/score_repeat.py --out output_v2
 
 ---
 
-*构建于 [MiroFish](https://github.com/666ghj/MiroFish)（AGPL-3.0）与 [OASIS](https://github.com/camel-ai/oasis)（Apache-2.0）。文档索引：[docs/README.md](docs/README.md)。中英文数字以 `data/` 与英文主文档为准；如有出入，以 `data/` 为准。*
+*文档索引：[docs/README.md](docs/README.md)。中英文数字以 `data/` 与英文主文档为准；如有出入，以 `data/` 为准。*
