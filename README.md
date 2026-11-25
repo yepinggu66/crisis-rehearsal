@@ -10,6 +10,7 @@ Crisis Rehearsal rewinds a real reputation crisis to T−72h, gives a swarm-simu
 [![Reproduce](https://img.shields.io/badge/reproduce-82.2%25%20in%202%20commands-brightgreen)](data/repeat_v02/ci_summary.md)
 
 > **Architecture Update (2026-11-23):** All upstream external framework patches (`patches/`, `docs/patches.md`) have been removed. Our commercial engine (**Crisis Rehearsal Pro V0.5**, private build) is now **100% in-house built** with zero upstream dependency (explicit 8×8×72 dynamics, walk-forward numeric gate, distribution-only Oracle protocol, and 90-minute boardroom workshop console). This public repository serves as our **verifiable offline evidence workstation** and **public case-study library**:
+> - ⚡ [**NEW (Nov 25, 2026) — Jensen Huang's Reinstatement & The Jensen–Musk Alliance: Market, Silicon Valley, U.S. Policy & High-End Silicon Stress Test**](case_studies/nvda_jensen_return_musk_alliance_rehearsal.md)
 > - 📊 [**Saving NVIDIA ($NVDA): Post-Jensen 72h Boardroom Crisis Rehearsal**](case_studies/nvda_post_jensen_boardroom_rehearsal.md)
 > - 📈 [**$BTC 900-Day Walk-Forward Gate & Exchange 72h Bank-Run Rehearsal**](case_studies/btc_exchange_72h_bankrun_rehearsal.md)
 > - 🎬 [**PROMETHEUS & SILICON: Dual-Timeline Tech Thriller & Pre-Production Audit**](case_studies/prometheus_and_silicon_pitch_and_rehearsal.md)

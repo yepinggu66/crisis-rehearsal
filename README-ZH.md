@@ -47,7 +47,13 @@ crh demo --out demo
 
 ![架构：T-72h 洁净室情报包 → 群体模拟 → 证据与评分 → crh 命令行与 HTML 档案](docs/assets/architecture.svg)
 
-架构、数据契约、与上游 MiroFish 的关系：[docs/architecture.md](docs/architecture.md) · 架构图：[docs/assets/architecture.svg](docs/assets/architecture.svg)。
+架构与数据契约：[docs/architecture.md](docs/architecture.md) · 架构图：[docs/assets/architecture.svg](docs/assets/architecture.svg)。
+
+### 最新 V0.5 实战推演档案（公开案例库）
+- ⚡ [**最新（2026-11-25）— 黄仁勋回归英伟达与黄马联手：市场、硅谷、美国政策与高端芯片深度推演**](case_studies/nvda_jensen_return_musk_alliance_rehearsal.md)
+- 📊 [**拯救英伟达（$NVDA）：后黄仁勋时代 72 小时董事会危机推演**](case_studies/nvda_post_jensen_boardroom_rehearsal.md)
+- 📈 [**$BTC 900 天滚动验证与交易所 72 小时挤兑预演**](case_studies/btc_exchange_72h_bankrun_rehearsal.md)
+- 🎬 [**PROMETHEUS & SILICON：双时间线科技惊悚片前瞻审计**](case_studies/prometheus_and_silicon_pitch_and_rehearsal.md)
 
 ## 回测证据（v0.2，30 起事件 × 3 次）
 
