@@ -4,7 +4,7 @@
 > **Date**: November 25, 2026  
 > **Engine**: `Crisis Rehearsal Pro 0.5.0` (Explicit 8×8×72 Multi-Stakeholder Dynamics + Section 7 Process Yield Oracle)  
 > **Prior Dossiers**: [Post-Jensen Boardroom Rehearsal (Nov 22)](./nvda_post_jensen_boardroom_rehearsal.md) · [Jensen Reinstatement & Musk Alliance Stress Test (Nov 25)](./nvda_jensen_return_musk_alliance_rehearsal.md)  
-> **Live Visual Brief**: https://pingguye.cn/crisis-demo/jensen-tightrope-90d.html  
+> **Live Visual Brief**: https://weixiayu.com/jensen-tightrope-90d.html  
 > **Real-World Market Anchor (Nov 23–25, 2026)**: Following Jensen Huang's unanimous reinstatement on Nov 23, **`$NVDA`** surged **+31.48%** to close at **`$165.05`** (intraday high **`$171.50`**, adding nearly **$1T** in single-day market cap), then pulled back **-5.86%** to **`$155.38`** on Nov 24 and traded near **`$150.86–$150.96`** on Nov 25 (~12% off Monday's peak). Simultaneously, NVIDIA's Board established a new **National Security and Export Control Committee**.
 
 ---
@@ -62,8 +62,8 @@ crh dynamics --title "Tightrope Regime 1" --shock 0.60 --delay 3 --sensitivity -
 crh dynamics --title "Tightrope Regime 2" --shock 0.82 --delay 12 --sensitivity --json
 ```
 
-- **Live 90-Min Interactive Boardroom Console**: https://pingguye.cn/crisis-demo/jensen-musk-workshop.html
-- **Bilingual Visual Brief**: https://pingguye.cn/crisis-demo/jensen-tightrope-90d.html
+- **Live 90-Min Interactive Boardroom Console**: https://weixiayu.com/jensen-musk-workshop.html
+- **Bilingual Visual Brief**: https://weixiayu.com/jensen-tightrope-90d.html
 - **Enterprise Licensing, White-Label PR/Legal Agency Workshops, or Strategic Acquisition Inquiries**: Contact `yepinggu6@gmail.com` or open a GitHub Discussion on `yepinggu66/crisis-rehearsal`.
 
 > **Disclaimer**: This dossier is a deterministic strategic stress-test simulation and public market analysis produced by `Crisis Rehearsal Pro 0.5.0`. It is **not** financial, investment, legal, or regulatory advice.
