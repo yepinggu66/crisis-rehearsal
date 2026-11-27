@@ -50,7 +50,8 @@ crh demo --out demo
 架构与数据契约：[docs/architecture.md](docs/architecture.md) · 架构图：[docs/assets/architecture.svg](docs/assets/architecture.svg)。
 
 ### 最新 V0.5 实战推演档案（官网：[weixiayu.cn 中国区](https://weixiayu.cn/) ｜ [weixiayu.com 国际旗舰站](https://weixiayu.com/) ｜ [weixiayu.site AI Studio](https://weixiayu.site/)）
-- 📉 [**最新（2026-11-27）— 2026 AI 泡沫破裂与 90 天宏观股票传染模型验证（$QQQ $SPY $NVDA $AVGO $MSFT）：97% 媒体警报 vs 5.7% 历史基准率**](case_studies/ai_bubble_2026_macro_contagion_rehearsal.md)
+- 🏛️ [**最新（2026-11-28）— 美国 Q3 GDP 修正争议：主权统计公信力、美债收益率与美联储政策压力测试**](case_studies/us_gdp_data_credibility_rehearsal.md)
+- 📉 [**2026 AI 泡沫破裂与 90 天宏观股票传染模型验证（$QQQ $SPY $NVDA $AVGO $MSFT）：97% 媒体警报 vs 5.7% 历史基准率**](case_studies/ai_bubble_2026_macro_contagion_rehearsal.md)
 - 🎯 [**老黄走钢丝与未来 90 天股市推演（$NVDA $AVGO $AMD $MSFT）：吃马斯克大单 vs 稳住四大云巨头**](case_studies/nvda_jensen_tightrope_90d_market_rehearsal.md) ｜ [90 天股市推演展厅页](https://weixiayu.com/jensen-tightrope-90d.html)
 - ⚡ [**黄仁勋回归英伟达与黄马联手：市场、硅谷、美国政策与高端芯片深度推演**](case_studies/nvda_jensen_return_musk_alliance_rehearsal.md) ｜ [在线体验：90 分钟离线董事会演练台](https://weixiayu.com/jensen-musk-workshop.html) ｜ [中文图文战报展厅](https://weixiayu.cn/jensen-musk-rehearsal.html)
 - 📊 [**拯救英伟达（$NVDA）：后黄仁勋时代 72 小时董事会危机推演**](case_studies/nvda_post_jensen_boardroom_rehearsal.md)
