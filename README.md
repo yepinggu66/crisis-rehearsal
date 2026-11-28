@@ -123,6 +123,14 @@ Run `crh verify`, `crh stats`, and `crh demo` completely offline with zero API k
 
 ## License & commercial boundary
 
+- **Public Evidence Workstation (this repo):** `AGPL-3.0` — offline 30-event backtest verification & public case-study library.
+- **Commercial Offerings (`Crisis Rehearsal Pro V0.5`, 100% in-house private build):**
+  - **48-Hour Custom Boardroom Pilot (`$1,500`)** — Send one anonymized crisis scenario; receive a custom-branded offline 90-minute HTML tabletop console, Decision Card, 4 timed injects & audit readout (`yepinggu6@gmail.com`).
+  - **PR / Legal Agency White-Label Annual License (`$8,000/yr`)** — Unlimited offline client workshops with zero data egress.
+  - **Full Proprietary IP Buyout (`$65,000+`)** — Complete MIT commercial repo (117/117 tests), case-study library & domains (`weixiayu.com/.cn/.site`).
+
+<!-- original boundary -->
+
 - **Public Evidence Workstation (`crisis-rehearsal`)**: `AGPL-3.0`. Inspect, audit, and reproduce the 30-event historical backtest offline.
 - **Commercial Private Engine (`Crisis Rehearsal Pro V0.5`)**: 100% in-house clean-room codebase with zero upstream dependency — available for enterprise annual licensing, PR agency white-label pilots, and 90-minute executive workshops.
 - **No client data in this repo.** All events are public news; seeds were written from public sources only.
