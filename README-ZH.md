@@ -136,7 +136,7 @@ docs/                        # 架构、部署、企业/政府文档、样例报
 
 ## 试点与联系
 
-开 issue，或邮件 **yepinggu@outlook.com**。我们愿意为你的团队免费做一次 30 分钟的真实历史事件预演——如果方法不适合你的场景，我们会直说。中文站点：https://pingguye.cn。维护者：[@PingguYe](https://x.com/PingguYe)。
+**公告：定制免费试用通道现已正式关闭。** 公开演示与历史回测仍可在 [weixiayu.com](https://weixiayu.com/) 与本仓库离线复现；如需预订 **48 小时定制董事会试点工作坊（`$1,500`）**、**公关/律所白标年授权（`$8,000/年`）** 或洽谈 **完整产权买断（`$65,000+`）**，请邮件联系 **yepinggu6@gmail.com** 或私信 [@PingguYe](https://x.com/PingguYe)。国际旗舰站：https://weixiayu.com ｜ 中国区展厅：https://weixiayu.cn。
 
 ---
 

@@ -142,7 +142,7 @@ If you use this in research or a report, cite it via [`CITATION.cff`](CITATION.c
 
 ## Pilot & contact
 
-Open an issue, or email **yepinggu@outlook.com**. We will run a free 30-minute rehearsal of one real past event for your team — and we will tell you honestly if the method does not fit your case. Chinese site: https://pingguye.cn. Maintainer: [@PingguYe](https://x.com/PingguYe).
+**Notice: Free custom trial rehearsals are now closed.** Public interactive showcase demos remain viewable on [weixiayu.com](https://weixiayu.com/), and you can verify our 30-event backtest offline in this repo. For paid **48-hour custom boardroom pilots (`$1,500`)**, **white-label agency annual licenses (`$8,000/yr`)**, or **full IP buyout (`$65,000+`)**, email **yepinggu6@gmail.com** or DM [@PingguYe](https://x.com/PingguYe). International site: https://weixiayu.com · China B2B site: https://weixiayu.cn.
 
 ---
 
